@@ -1,11 +1,97 @@
 <template>
-    <div>
-        <h1> Найти </h1>
+  <div class="container">
+    <div class="mt-6 mb-6">
+    <h1 class="it-title">
+      {{ title }}
+    </h1>
+    <p class="it-desc">
+      {{ desc }}
+    </p>
     </div>
+    <div class="row mt-12">
+      <div class="col filtration_block">
+        <SittersFilters />
+      </div>
+      <div class="col">
+        <SittersList :sitters="sitters" />
+      </div>
+    </div>
+    <div class="mt-6 mb-6">
+      <Pagination :page="page" :count="count" @updatePage="updatePage" />
+    </div>
+  </div>
 </template>
 
 <script>
+import SittersFilters from '../components/sittersFilters'
+import SittersList from '../components/sittersList'
+import Pagination from '../components/pagination'
+
 export default {
-    
+  components: { SittersFilters, Pagination, SittersList },
+  layout: 'app',
+  data () {
+    return {
+      page: 1,
+      count: 18,
+      title: 'Наши ситтеры',
+      desc: 'Найдите подходящего под Ваши критерии ситтера для Вашего питомца',
+      sitters: [
+        {
+          name: 'Jane Foster',
+          image: 'jane-foster.jpeg',
+          slug: 'jane-foster',
+          rating: 4,
+          buttonInfo: {
+            text: 'Посмотреть профиль'
+          },
+          info: [
+            { icon: 'mdi-calendar-range', text: 'Стаж', value: '2 года' },
+            { icon: 'mdi-map-marker', text: 'Район города', value: 'Юг' },
+            { icon: 'mdi-paw', text: 'Специализация', value: 'Собаки' },
+          ]
+        },
+        {
+          name: 'Alex Rakatanski',
+          image: 'alex-rakatanski.jpeg',
+          slug: 'alex-rakatanski',
+          rating: 5,
+          buttonInfo: {
+            text: 'Посмотреть профиль'
+          },
+          info: [
+            { icon: 'mdi-calendar-range', text: 'Стаж', value: '1 год' },
+            { icon: 'mdi-map-marker', text: 'Район города', value: 'Центр' },
+            { icon: 'mdi-paw', text: 'Специализация', value: 'Кошки' },
+          ]
+        },
+        {
+          name: 'Clay Rideaux',
+          image: 'clay-rideaux.jpeg',
+          slug: 'clay-rideaux',
+          rating: 4,
+          buttonInfo: {
+            text: 'Посмотреть профиль'
+          },
+          info: [
+            { icon: 'mdi-calendar-range', text: 'Стаж', value: '5 лет' },
+            { icon: 'mdi-map-marker', text: 'Район города', value: 'Север' },
+            { icon: 'mdi-paw', text: 'Специализация', value: 'Экзотические животные' },
+          ]
+        },
+      ]
+    }
+  },
+
+  methods: {
+    updatePage (localPageSelected) {
+      this.page = localPageSelected
+      this.getSittersList()
+    },
+    getSittersList () {
+        //запрос на сервер
+    }
+  }
+
 }
 </script>
