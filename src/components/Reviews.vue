@@ -14,7 +14,7 @@
         <p class="subheading font-weight-regular">
           Только отзывы от&nbsp;наших настоящих клиентов.
         </p>
-        <ReviewsFormModal class="mt-3 ml-1" v-on:send-review="addReview" />
+        <ReviewsFormModal class="mt-3 ml-1" />
       </v-col>
       <v-col
         lg="4"

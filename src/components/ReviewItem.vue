@@ -22,6 +22,14 @@
 
         <v-list-item-content>
           <v-list-item-title>{{review.name}}</v-list-item-title>
+          <v-spacer></v-spacer>
+          <v-rating
+            :value="review.grade"
+            background-color="orange lighten-3"
+            color="orange"
+            size="24"
+            readonly
+          />
         </v-list-item-content>
       </v-list-item>
     </v-card-actions>
