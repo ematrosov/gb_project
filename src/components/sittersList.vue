@@ -1,5 +1,5 @@
 <template>
-  <v-container class="mt-4">
+  <v-container class="mt-n2">
     <v-row>
       <v-col
         v-for="(item, index) in sitters"

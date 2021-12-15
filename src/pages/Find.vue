@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="mt-6 mb-6">
-      <Pagination :page="page" :count="count" @updatePage="updatePage" />
+      <Pagination :page="page" :count="count" :page-size="pageSize" @updatePage="updatePage" />
     </div>
   </div>
 </template>
@@ -28,12 +28,12 @@ import SittersList from '../components/sittersList'
 import Pagination from '../components/pagination'
 
 export default {
-  components: { SittersFilters, Pagination, SittersList },
-  layout: 'app',
+  components: { SittersFilters, SittersList, Pagination },
   data () {
     return {
       page: 1,
-      count: 18,
+      count: 20,
+      pageSize: 10,
       title: 'Наши ситтеры',
       desc: 'Найдите подходящего под Ваши критерии ситтера для Вашего питомца',
       sitters: [

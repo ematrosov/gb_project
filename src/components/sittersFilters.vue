@@ -35,17 +35,6 @@ export default {
       filters: [
         {
           type: 'checkbox',
-          title: 'Стаж',
-          options: [
-            { title: 'Менее года' },
-            { title: 'От года до трех лет' },
-            { title: 'От трех до пяти лет' },
-            { title: 'Больше пяти лет' },
-            { title: 'Не имеет значения' }
-          ]
-        },
-        {
-          type: 'checkbox',
           title: 'Рейтинг',
           options: [
             { title: 'Более 1 звезды' },
