@@ -25,7 +25,7 @@
           width="40"
         />
       <v-btn
-        href="./components/HelloWorld"
+        href="#"
         target="_blank"
         text
       >
