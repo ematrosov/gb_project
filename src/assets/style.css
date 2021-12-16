@@ -148,4 +148,11 @@ a {
 
 .checkbox {
   margin-bottom: -25px;
-  }
+}
+
+.filter-selector {
+  color: white;
+  border: 1px solid primary;
+  border-radius: 8px;
+  padding: 11px;
+}

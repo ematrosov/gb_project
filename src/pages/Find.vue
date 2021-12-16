@@ -13,7 +13,8 @@
         <SittersFilters />
       </div>
       <div class="col">
-        <SittersList :sitters="sitters" />
+        <FilterSelect :filters="filters" @changeFilter="changeFilter" />
+        <SittersList :sitters="sortedSitters" />
       </div>
     </div>
     <div class="mt-6 mb-6">
@@ -26,22 +27,27 @@
 import SittersFilters from '../components/sittersFilters'
 import SittersList from '../components/sittersList'
 import Pagination from '../components/pagination'
+import FilterSelect from '../components/filterSelect'
+
 
 export default {
-  components: { SittersFilters, SittersList, Pagination },
+  components: { SittersFilters, SittersList, Pagination, FilterSelect },
   data () {
     return {
+      filters: ['По рейтингу', 'По стажу'],
       page: 1,
       count: 20,
       pageSize: 10,
       title: 'Наши ситтеры',
+      sortedSitters: [],
       desc: 'Найдите подходящего под Ваши критерии ситтера для Вашего питомца',
       sitters: [
         {
           name: 'Jane Foster',
           image: 'jane-foster.jpeg',
           slug: 'jane-foster',
-          rating: 4,
+          rating: 3,
+          exp: 2,
           buttonInfo: {
             text: 'Посмотреть профиль'
           },
@@ -56,6 +62,7 @@ export default {
           image: 'alex-rakatanski.jpeg',
           slug: 'alex-rakatanski',
           rating: 5,
+          exp: 1,
           buttonInfo: {
             text: 'Посмотреть профиль'
           },
@@ -70,6 +77,7 @@ export default {
           image: 'clay-rideaux.jpeg',
           slug: 'clay-rideaux',
           rating: 4,
+          exp: 5,
           buttonInfo: {
             text: 'Посмотреть профиль'
           },
@@ -82,7 +90,9 @@ export default {
       ]
     }
   },
-
+  mounted() {
+    this.sortedSitters = this.sitters
+  },
   methods: {
     updatePage (localPageSelected) {
       this.page = localPageSelected
@@ -90,6 +100,24 @@ export default {
     },
     getSittersList () {
         //запрос на сервер
+    },
+    changeFilter (filter) {
+      if (filter === 'По рейтингу') {
+        this.sortedSitters = this.sortedSittersRating()
+      }
+      if (filter === 'По стажу') {
+        this.sortedSitters = this.sortedSittersExp()
+      }
+    },
+    sortedSittersRating () {
+      return JSON.parse(JSON.stringify(this.sitters)).sort(function (a, b) {
+        return b.rating - a.rating
+      })
+    },
+    sortedSittersExp () {
+      return JSON.parse(JSON.stringify(this.sitters)).sort(function (a, b) {
+        return b.exp - a.exp
+      })
     }
   }
 
