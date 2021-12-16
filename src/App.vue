@@ -4,53 +4,75 @@
       app
       color="primary"
       dark
-    >
-      <div class="d-flex align-center">
+    >     
         <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          alt="Logo"
+          class="shrink mr-1"
+          contain          
+          src="./assets/3.png"
+          transition="scale-transition"
+          width="20"
+        />       
+   
+
+      <v-spacer></v-spacer>
+       <v-img
+          alt="Logo"
+          class="text-logo"
+          contain          
+          src="./assets/3.png"
           transition="scale-transition"
           width="40"
         />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
+      <v-btn
+        href="./components/HelloWorld"
+        target="_blank"
+        text
+      >
+        <span class="mr-2">Главная</span>        
+        <!--v-icon>mdi-open-in-new</v-icon-->
+      </v-btn>
+     
       <v-btn
         href="https://github.com/vuetifyjs/vuetify/releases/latest"
         target="_blank"
         text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
+      >        
+        <span class="mr-4">Услуги</span>
+      </v-btn>
+      <v-btn
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        target="_blank"
+        text
+      >     
+        <span class="mr-5">Регистрация</span>
+      </v-btn>
+      <v-btn
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        target="_blank"
+        text
+      >     
+        <span class="mr-5">Отзывы</span>
       </v-btn>
     </v-app-bar>
 
     <v-main>
-      <HelloWorld/>
+      <!--HelloWorld/-->
+      <Main/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import Main from './components/Main';
+//import HelloWorld from './components/HelloWorld';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    //HelloWorld,
+    Main,
   },
 
   data: () => ({
