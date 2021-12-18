@@ -156,3 +156,9 @@ a {
   border-radius: 8px;
   padding: 11px;
 }
+
+.applicationBtn {
+  float: right;
+  margin-bottom: 30px;
+  margin-right: 15px;
+}
