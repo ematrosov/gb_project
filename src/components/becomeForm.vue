@@ -89,6 +89,39 @@
     </v-card-text>
     </v-form>
     <DefaultButton class="applicationBtn" :button-info="buttonInfo" @eventHandler="sendApplication" />
+    <v-dialog
+      v-model="loading"
+      persistent
+      width="300"
+    >
+      <v-card
+        color="primary"
+        dark
+      >
+        <v-card-text class="pt-2">
+          Пожалуйста, подождите
+          <v-progress-linear
+            indeterminate
+            color="white"
+            class="mt-2"
+          ></v-progress-linear>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
+    <v-dialog
+      v-model="dialog"
+      width="500"
+    >
+      <v-card>
+        <v-card-title class="text-h5">
+          Ваша заявка отправлена
+        </v-card-title>
+
+        <v-card-text>
+          Наши менеджеры свяжутся с Вами в ближайшее время, спасибо!
+        </v-card-text>
+      </v-card>
+    </v-dialog>
 </div>
 </template>
 
@@ -107,6 +140,8 @@ export default {
       buttonInfo: {
         text: 'Отправить',
       },
+      loading: false,
+      dialog: false,
       reg: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/,
       application: {
         name: '',
@@ -138,7 +173,8 @@ export default {
       if (!this.validate()) {
         return false
       }
-    //   console.log('отправить')
+        this.loading = true
+        setTimeout(() => (this.loading = false, this.dialog = true), 2000)
     },
 
     checkNameField () {
