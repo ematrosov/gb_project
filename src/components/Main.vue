@@ -1,58 +1,79 @@
 <template>
-  <v-container class="text-flex">    
-    <v-row class="text-flex">     
-      <v-col cols=4>
+  <v-container class="display">
+    <div class="text-flex">      
+      <v-col cols="4">       
+        <div class="text-color">
+          <h1>Уезжаешь?</h1>
+          <h2>
+            Не с кем оставить
+            <br />
+            своего любимого питомца?
+          </h2>
+          <h2>Тебе поможет</h2>
+          <h1 class="textGoodFriend">Добрый друг!</h1>                  
+          <div color="#778899">
+            <v-btn href="/find-sitter">
+              <span class="mr-1">Найти пэт-ситтера</span>
+            </v-btn>
+          </div>
+        </div>
+      </v-col>
+      <v-col cols="4" class="d-flex align-center">
         <v-img
-          :src="require('../assets/3.png')"          
-          contain
-          height="200"
-        />       
-        <p class="subheading font-weight-regular">
-          Уезжаешь?
-           <br />Не с кем оставить своего любимого питомца?           
-        </p>
-        <h1 class="display-2 font-weight-bold mb-3">Добрый друг!</h1>
-        <p>
-          <br />поможет! Воспользуйся нашими услугами!
-        </p>
-        <div class="itemsTable">
-          <button class="operButton">Перейти к услугам</button>
-        </div>     
-      </v-col>  
-      <v-col cols="4">        
-        <v-img
-          :src="require('../assets/pexels-photo-3945402.jpeg')"  
+          :src="require('../assets/pexels-photo-3945402.jpeg')"
           class="img-large"
-          contain
-        />          
-      </v-col>        
-      <v-col cols="4">
-        <v-img
-          :src="require('../assets/puppy-dog-canine-pet.jpeg')"         
-          class="img-small"
-          contain
-          height="200"
+          height="550"
         />
-        <v-img        
-          :src="require('../assets/lying-down-orange-cat-cute-pets-cats.jpeg')"
-          class="img-small"
-          contain
-          height="200"
-        />        
+      </v-col>
+      <v-col cols="2">
         <v-img
-          :src="require('../assets/kolli-shchenok-morda.jpg')"          
+          :src="require('../assets/8-Крольченок породы карликовый баран.jpg')"
           class="img-small"
-          contain
-          height="200"
-        />        
-         <v-img
-          :src="require('../assets/kot-koshka-morda-jfua.jpg')"
+          height="170"
+        />
+        <v-img
+          :src="require('../assets/koshka-696x522.jpg')"
           class="img-small"
-          contain
-          height="200"
-        />        
-      </v-col>          
-    </v-row>
+          height="170"
+        />
+        <v-img
+          :src="require('../assets/78.jpg')"
+          class="img-small"
+          height="170"
+        />
+        <v-img
+          :src="
+            require('../assets/detail_c97de83e946ba7a99ef1840e46ba7c57.jpg')
+          "
+          class="img-small"
+          height="170"
+        />
+      </v-col>
+      <v-col cols="2">
+        <v-img
+          :src="require('../assets/dog-4372036_960_720.jpg')"
+          class="img-small"
+          height="170"
+        />
+        <v-img
+          :src="require('../assets/puppy-dog-canine-pet.jpeg')"
+          class="img-small"
+          height="170"
+        />
+        <v-img
+          :src="
+            require('../assets/popugay-ili-pevchaya-ptichka-kakogo-pitomtsa-vyibrat-nachinayushhim-04.jpg')
+          "
+          class="img-small"
+        />
+        <v-img
+          :src="require('../assets/4107265220_e55560cdba3.jpg')"
+          class="img-small"
+        />
+        <v-img :src="require('../assets/Home_01.jpg')" class="img-small" />
+      </v-col>
+      <!--/v-row-->
+    </div>
   </v-container>
 </template>
 
@@ -60,57 +81,6 @@
 export default {
   name: "Main",
 
-  data: () => ({
-    ecosystem: [
-      {
-        text: "vuetify-loader",
-        href: "https://github.com/vuetifyjs/vuetify-loader",
-      },
-      {
-        text: "github",
-        href: "https://github.com/vuetifyjs/vuetify",
-      },
-      {
-        text: "awesome-vuetify",
-        href: "https://github.com/vuetifyjs/awesome-vuetify",
-      },
-    ],
-    importantLinks: [
-      {
-        text: "Documentation",
-        href: "https://vuetifyjs.com",
-      },
-      {
-        text: "Chat",
-        href: "https://community.vuetifyjs.com",
-      },
-      {
-        text: "Made with Vuetify",
-        href: "https://madewithvuejs.com/vuetify",
-      },
-      {
-        text: "Twitter",
-        href: "https://twitter.com/vuetifyjs",
-      },
-      {
-        text: "Articles",
-        href: "https://medium.com/vuetify",
-      },
-    ],
-    whatsNext: [
-      {
-        text: "Explore components",
-        href: "https://vuetifyjs.com/components/api-explorer",
-      },
-      {
-        text: "Select a layout",
-        href: "https://vuetifyjs.com/getting-started/pre-made-layouts",
-      },
-      {
-        text: "Frequently Asked Questions",
-        href: "https://vuetifyjs.com/getting-started/frequently-asked-questions",
-      },
-    ],
-  }),
+  data: () => ({}),
 };
 </script>
