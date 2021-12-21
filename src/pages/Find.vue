@@ -29,24 +29,24 @@ import SittersFilters from '../components/sittersFilters'
 import SittersList from '../components/sittersList'
 import Pagination from '../components/pagination'
 import FilterSelect from '../components/filterSelect'
+
+
 export default {
-   //components: { SittersFilters, Pagination, SittersList },
-   components: { SittersFilters, SittersList, Pagination, FilterSelect },
-  //layout: 'app',
+  components: { SittersFilters, SittersList, Pagination, FilterSelect },
   data () {
     return {
       filters: ['По рейтингу', 'По стажу'],
       page: 1,
-//count: 18,
+      count: 20,
+      pageSize: 10,
       title: 'Наши ситтеры',
-       sortedSitters: [],
+      sortedSitters: [],
       desc: 'Найдите подходящего под Ваши критерии ситтера для Вашего питомца',
       sitters: [
         {
           name: 'Jane Foster',
           image: 'jane-foster.jpeg',
           slug: 'jane-foster',
-//          rating: 4,
           rating: 3,
           exp: 2,
           buttonInfo: {
@@ -78,7 +78,7 @@ export default {
           image: 'clay-rideaux.jpeg',
           slug: 'clay-rideaux',
           rating: 4,
-           exp: 5,
+          exp: 5,
           buttonInfo: {
             text: 'Посмотреть профиль'
           },
@@ -101,7 +101,7 @@ export default {
     },
     getSittersList () {
         //запрос на сервер
-         },
+    },
     changeFilter (filter) {
       if (filter === 'По рейтингу') {
         this.sortedSitters = this.sortedSittersRating()
@@ -121,5 +121,6 @@ export default {
       })
     }
   }
+
 }
-</script> 
+</script>

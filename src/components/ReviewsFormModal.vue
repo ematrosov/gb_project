@@ -26,7 +26,9 @@
 import ReviewsForm from "./ReviewsForm.vue";
 export default {
   name: "ReviewsFormModal",
+
   components: { ReviewsForm },
+
   data() {
     return {
       dialog: false

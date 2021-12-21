@@ -107,8 +107,10 @@ export default {
       ],
     };
   },
+
   props: {
   },
+
   methods: {
     ...mapActions(["addReview"]),
     emotion(val) {

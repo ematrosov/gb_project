@@ -31,19 +31,7 @@ export default {
       buttonInfo: {
         text: 'Искать',
       },
-      filters: [        
-        //{
-        //  type: 'checkbox',
-        //  title: 'Рейтинг',
-        //  options: [
-        //    { title: 'Более 1 звезды' },
-        //    { title: 'Более 2 звезд' },
-        //    { title: 'Более 3 звезд' },
-        //    { title: 'Более 4 звезд' },
-        //    { title: 'Только 5 звезд' },
-        //    { title: 'Не имеет значения' }
-        //  ]
-        //},
+      filters: [
         {
           type: 'checkbox',
           title: 'Район города',
@@ -82,5 +70,6 @@ export default {
       this.removeOptionsSelected()
     }
   }
+
 }
 </script>
