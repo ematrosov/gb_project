@@ -13,7 +13,6 @@
         <SittersFilters />
       </div>
       <div class="col">
-        <!--SittersList :sitters="sitters" /-->
         <FilterSelect :filters="filters" @changeFilter="changeFilter" />
         <SittersList :sitters="sortedSitters" />
       </div>

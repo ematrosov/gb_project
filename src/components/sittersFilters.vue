@@ -6,12 +6,18 @@
           {{ header }}
         </div>
         <span class="filter__reboot" @click="removeFilters" />
-      </div>
-      <FiltersLogic
-        :filters="filters"
+     </div>
+      <div
+        v-for="(filter, index) in filters"
+        :key="index"
+        class="filter-item"
+        >
+        <FilterCheckbox
+        :filter="filter"
         :options-selected="optionsSelected"
         @updateOptions="updateOptions"
-      />
+        />
+      </div>  
       <div class="filter__foot">
         <DefaultButton :button-info="buttonInfo" @eventHandler="getSittersList" />
       </div>
@@ -20,10 +26,11 @@
 </template>
 
 <script>
-import FiltersLogic from './filtersLogic'
+import FilterCheckbox from './filterCheckbox'
 import DefaultButton from './defaultButton'
+
 export default {
-  components: { FiltersLogic, DefaultButton },
+  components: { FilterCheckbox, DefaultButton },
   data () {
     return {
       optionsSelected: [],
@@ -33,8 +40,8 @@ export default {
       },
       filters: [
         {
-          type: 'checkbox',
           title: 'Район города',
+          filterName: 'cityAreas',
           options: [
             { title: 'Север' },
             { title: 'Юг' },
@@ -44,8 +51,8 @@ export default {
           ]
         },
         {
-          type: 'checkbox',
           title: 'Специализация',
+          filterName: 'specialties',
           options: [
             { title: 'Кошки' },
             { title: 'Собаки' },
@@ -55,13 +62,18 @@ export default {
       ]
     }
   },
+    mounted () {
+    this.filters.forEach((filter) => {
+      this.optionsSelected[filter.filterName] = []
+    })
+  },
   methods: {
     getSittersList () {
       console.log(this.optionsSelected)
       // запрос на список
     },
-    updateOptions (localOptionsSelected) {
-      this.optionsSelected = localOptionsSelected
+    updateOptions (localOptionsSelected, filterName) {
+      this.optionsSelected[filterName] = localOptionsSelected
     },
     removeOptionsSelected () {
       this.optionsSelected = []

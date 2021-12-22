@@ -1,8 +1,5 @@
 <template>
   <article class="card">
-    <picture
-      v-if="item.image"
-    >
       <img
         :src="require(`../assets/${item.image}`)"
         :alt="item.name"
@@ -10,7 +7,6 @@
         width="255"
         height="255"
       >
-    </picture>
     <div class="card-description">
       <a :href="`/${navHref.href1}/` + item.id">
         <h3
@@ -26,7 +22,7 @@
         </div>
       </div>
       <div class="card-details">
-        <div v-if="item.rating" class="ml-n2">
+        <div class="ml-n2">
           <Rating class="mb-2" :rating-info="item.rating" />
         </div>
         <DefaultButton :button-info="item.buttonInfo" :href="`/${navHref.href1}/` + item.id" />

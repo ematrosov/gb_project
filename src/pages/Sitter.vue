@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="card-details">
-        <div v-if="sitter.rating" class="ml-n2">
+        <div class="ml-n2">
           <Rating class="mb-2" :rating-info="sitter.rating" />
         </div>
       </div>

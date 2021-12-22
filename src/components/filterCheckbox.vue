@@ -39,7 +39,7 @@ export default {
   },
   watch: {
     localOptionsSelected (localOptionsSelected) {
-      this.$emit('updateOptions', localOptionsSelected)
+      this.$emit('updateOptions', localOptionsSelected, this.filter.filterName)
     },
     optionsSelected (optionsSelected) {
       this.localOptionsSelected = optionsSelected
