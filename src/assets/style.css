@@ -166,3 +166,7 @@ a {
 .image_block {
   max-width: 30% !important;
 }
+
+.sitter-review-modal {
+  background: white;
+}

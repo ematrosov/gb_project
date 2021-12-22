@@ -31,7 +31,7 @@
     </p>
     <strong>Телефон для связи:</strong> <p> {{ sitter.number }}</p>
     <strong>Социальная сеть:</strong> <p> {{ sitter.socialMediaLink }}</p>
-    <DefaultButton :button-info="sitter.buttonInfo" />
+    <SitterReviewModal :sitter="sitter" />
     </div>
     </div>
   </div>
@@ -41,10 +41,11 @@
 <script>
 import Rating from '../components/rating'
 import InfoIcon from '../components/infoIcon'
-import DefaultButton from '../components/defaultButton'
+import SitterReviewModal from '../components/sitterReviewModal'
+
 
 export default {
-  components: { Rating, InfoIcon, DefaultButton },
+  components: { Rating, InfoIcon, SitterReviewModal },
   data () {
     return {
       sitter: {}
