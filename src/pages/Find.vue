@@ -46,7 +46,7 @@ export default {
         {
           name: 'Jane Foster',
           image: 'jane-foster.jpeg',
-          slug: 'jane-foster',
+          id: 213,
           rating: 3,
           exp: 2,
           buttonInfo: {
@@ -61,7 +61,7 @@ export default {
         {
           name: 'Alex Rakatanski',
           image: 'alex-rakatanski.jpeg',
-          slug: 'alex-rakatanski',
+          id: 214,
           rating: 5,
           exp: 1,
           buttonInfo: {
@@ -76,7 +76,7 @@ export default {
         {
           name: 'Clay Rideaux',
           image: 'clay-rideaux.jpeg',
-          slug: 'clay-rideaux',
+          id: 215,
           rating: 4,
           exp: 5,
           buttonInfo: {

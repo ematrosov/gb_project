@@ -6,6 +6,7 @@ import Main from '../components/Main'
 import Find from '../pages/Find'
 import Reviews from '../pages/Reviews'
 import Become from '../pages/Become'
+import Sitter from '../pages/Sitter'
 
 Vue.use(VueRouter);
 
@@ -32,6 +33,11 @@ let router = new VueRouter({
         {
             path: '/become-sitter',
             component: Become
+        },
+        {
+            path: '/find-sitter/:id',
+            name: 'find-sitter',
+            component: Sitter
         }
     ],
     mode: 'history'

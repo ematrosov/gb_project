@@ -5,14 +5,14 @@
     >
       <img
         :src="require(`../assets/${item.image}`)"
-        :alt="item.title"
+        :alt="item.name"
         class="card-img"
         width="255"
         height="255"
       >
     </picture>
     <div class="card-description">
-      <a :href="`/${navHref.href1}/` + item.slug">
+      <a :href="`/${navHref.href1}/` + item.id">
         <h3
           class="card-name"
           :title="item.name"
@@ -29,7 +29,7 @@
         <div v-if="item.rating" class="ml-n2">
           <Rating class="mb-2" :rating-info="item.rating" />
         </div>
-        <DefaultButton :button-info="item.buttonInfo" :href="`/${navHref.href1}/` + item.slug" />
+        <DefaultButton :button-info="item.buttonInfo" :href="`/${navHref.href1}/` + item.id" />
       </div>
     </div>
   </article>

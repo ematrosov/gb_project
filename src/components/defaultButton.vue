@@ -1,5 +1,5 @@
 <template>
-  <a :href="buttonInfo.to" class="btn" @click="eventHandler"> {{ buttonInfo.text }}</a>
+  <a class="btn" @click="eventHandler"> {{ buttonInfo.text }}</a>
 </template>
 
 <script>
