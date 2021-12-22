@@ -162,3 +162,7 @@ a {
   margin-bottom: 30px;
   margin-right: 15px;
 }
+
+.image_block {
+  max-width: 30% !important;
+}

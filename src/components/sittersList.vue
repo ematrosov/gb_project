@@ -25,7 +25,7 @@ export default {
   data () {
     return {
       navHref: {
-        href1: 'sitters'
+        href1: 'find-sitter'
       }
     }
   }
