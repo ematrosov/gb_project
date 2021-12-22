@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+    <div class="container">
     <div class="mt-6 mb-6">
     <h1 class="it-title">
       {{ title }}
@@ -13,11 +13,12 @@
         <SittersFilters />
       </div>
       <div class="col">
+        <!--SittersList :sitters="sitters" /-->
         <FilterSelect :filters="filters" @changeFilter="changeFilter" />
         <SittersList :sitters="sortedSitters" />
       </div>
     </div>
-    <div class="mt-6 mb-6">
+    <div class="mt-6 mb-6">      
       <Pagination :page="page" :count="count" :page-size="pageSize" @updatePage="updatePage" />
     </div>
   </div>

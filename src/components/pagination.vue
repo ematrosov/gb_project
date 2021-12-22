@@ -8,7 +8,6 @@
 </template>
 
 <script>
-
 export default {
   props: {
     page: {
@@ -33,14 +32,12 @@ export default {
     localPageSelected (localPageSelected) {
       this.$emit('updatePage', localPageSelected)
     },
-
     // тут может приходить изменение pageSize, count, page
     page (page) {
       this.localPageSelected = page
       this.$emit('updatePage', this.localPageSelected)
     }
   },
-
   mounted () {
     this.localPageSelected = this.page
     // this.$emit('updatePage', this.localPageSelected)

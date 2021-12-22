@@ -1,21 +1,28 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import HelloWorld from '../pages/HelloWorld'
+import Main from '../components/Main'
+//import HelloWorld from '../pages/HelloWorld'
 import Find from '../pages/Find'
 import Reviews from '../pages/Reviews'
 import Become from '../pages/Become'
 
 Vue.use(VueRouter);
 
+console.log('вошла в роутер')
+
 let router = new VueRouter({
     routes: [
         {
             path: '',
-            component: HelloWorld
+            component: Main
         },
+        //{
+            //path: '',
+            //component: HelloWorld
+        //},
         {
-            path: '/find-sitter',
+           path: '/find-sitter',           
             component: Find
         },
         {

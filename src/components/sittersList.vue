@@ -13,7 +13,6 @@
 
 <script>
 import DefaultVertCard from './defaultVertCard'
-
 export default {
   components: { DefaultVertCard },
   props: {

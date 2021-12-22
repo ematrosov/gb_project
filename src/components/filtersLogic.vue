@@ -17,7 +17,9 @@
 
 <script>
 import FilterCheckbox from './filterCheckbox'
-
+// можно будет добавлять другие виды фильтров (не только чекбоксы, а еще сладейры, кадендари)
+// import FilterDate from './filterDate' 
+// import FilterSlider from './filterSlider'
 export default {
   components: { FilterCheckbox },
   props: {
@@ -30,7 +32,6 @@ export default {
       default: () => []
     },
   },
-
   methods: {
     updateOptions (localOptionsSelected) {
       this.$emit('updateOptions', localOptionsSelected)

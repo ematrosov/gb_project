@@ -3,7 +3,6 @@
 </template>
 
 <script>
-
 export default {
   props: {
     buttonInfo: {
@@ -11,7 +10,6 @@ export default {
       default: () => {}
     }
   },
-
   methods: {
     eventHandler () {
       this.$emit('eventHandler')

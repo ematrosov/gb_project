@@ -22,7 +22,6 @@
 <script>
 import FiltersLogic from './filtersLogic'
 import DefaultButton from './defaultButton'
-
 export default {
   components: { FiltersLogic, DefaultButton },
   data () {
@@ -56,7 +55,6 @@ export default {
       ]
     }
   },
-
   methods: {
     getSittersList () {
       console.log(this.optionsSelected)

@@ -39,7 +39,6 @@
 import InfoIcon from './infoIcon'
 import Rating from './rating'
 import DefaultButton from './defaultButton'
-
 export default {
   components: { InfoIcon, Rating, DefaultButton },
   props: {

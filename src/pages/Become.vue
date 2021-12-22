@@ -14,7 +14,6 @@
 
 <script>
 import BecomeForm from '../components/becomeForm'
-
 export default {
   components: { BecomeForm },
   data () {

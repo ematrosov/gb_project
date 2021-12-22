@@ -12,7 +12,6 @@
 </template>
 
 <script>
-
 export default {
   props: {
     filters: {
@@ -25,7 +24,6 @@ export default {
       item: []
     }
   },
-
   watch: {
     item (item) {
       this.$emit('changeFilter', item)

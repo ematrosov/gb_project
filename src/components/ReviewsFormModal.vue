@@ -34,12 +34,10 @@ export default {
       dialog: false
     }
   },
-
   methods: {
     closeDialog() {
       this.dialog = false;
     },
-
     sendReview(formData) {
       this.$emit('send-review', formData);
     }
