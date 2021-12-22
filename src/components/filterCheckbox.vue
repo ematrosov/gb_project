@@ -9,14 +9,7 @@
     <div
       v-for="(option, index) in filter.options"
       :key="index"
-      class="checkbox"    >
-         <v-checkbox
-            v-model="localOptionsSelected"
-            :label="getSuboptionInfo(suboption)"
-            :value="suboption.title"
-            class="checkbox-categories-1 mb-n4"
-            color="white"
-          />         
+      class="checkbox">
       <v-checkbox      
         v-model="localOptionsSelected"
         :label="option.title"
@@ -54,9 +47,6 @@ export default {
     }
   },  
   methods: {
-    getSuboptionInfo (suboption) {
-      return suboption.title + ' ' + (suboption.quantity ? `(${suboption.quantity})` : '')
-    },
     removeFilters () {
       this.filter.options.forEach((option) => {
         const myIndex = this.localOptionsSelected.indexOf(option.title)
