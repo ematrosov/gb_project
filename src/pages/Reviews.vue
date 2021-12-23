@@ -69,8 +69,8 @@
 </template>
 
 <script>
-import ReviewsFormModal from './ReviewsFormModal.vue';
-import ReviewItem from "./ReviewItem.vue";
+import ReviewsFormModal from '../components/ReviewsFormModal.vue';
+import ReviewItem from "../components/ReviewItem.vue";
 import { mapState } from 'vuex';
 export default {
   name: 'Reviews',

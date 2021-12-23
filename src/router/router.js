@@ -5,8 +5,11 @@ import Main from '../components/Main'
 //import HelloWorld from '../pages/HelloWorld'
 import Find from '../pages/Find'
 import Reviews from '../pages/Reviews'
+
 import About from '../pages/About'
 import Become from '../pages/Become'
+
+
 
 Vue.use(VueRouter);
 
@@ -19,11 +22,13 @@ let router = new VueRouter({
             component: Main
         },
         //{
+
         //path: '',
         //component: HelloWorld
         //},
         {
-            path: '/find-sitter',
+
+
             component: Find
         },
         {
@@ -34,12 +39,17 @@ let router = new VueRouter({
             path: '/become-sitter',
             component: Become
         },
-        {
+
             path: '/about',
             component: About
+
+
         }
     ],
     mode: 'history'
 })
 
+
 export default router;
+
+
