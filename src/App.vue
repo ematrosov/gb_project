@@ -18,7 +18,7 @@
         <v-menu offset-y class="mr-5">
           <template v-slot:activator="{ on, attrs }">
 
-            <v-btn color="#778899" v-bind="attrs" v-on="on">
+            <v-btn color="#778899" v-bind="attrs" v-on="on" elevation="0">
 
               Наши услуги
             </v-btn>
