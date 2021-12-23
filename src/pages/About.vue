@@ -3,7 +3,7 @@
     <div class="text-flex">
       <v-col cols="7">
         <div class="text-color">
-          <h1>GoodFriend -</h1>
+          <h1>Добрый друг -</h1>
           <h2>
             платформа по предоставлению услуг для домашних животных.
             <br />
