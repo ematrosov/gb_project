@@ -12,6 +12,12 @@
         :key="index"
         class="filter-item"
         >
+        <div class="filter-item__head">
+        <div>
+        {{ filter.title }}
+        </div>
+        <div class="filter-item__icon" @click="removeFilter(filter)" />
+        </div>
         <FilterCheckbox
         :filter="filter"
         :options-selected="optionsSelected"
@@ -56,6 +62,9 @@ export default {
           options: [
             { title: 'Кошки' },
             { title: 'Собаки' },
+            { title: 'Грызуны' },
+            { title: 'Рыбки' },
+            { title: 'Птицы' },
             { title: 'Экзотические животные' }
           ]
         }
@@ -64,22 +73,23 @@ export default {
   },
     mounted () {
     this.filters.forEach((filter) => {
-      this.optionsSelected[filter.filterName] = []
+      this.$set(this.optionsSelected, filter.filterName, [])
     })
   },
   methods: {
     getSittersList () {
-      console.log(this.optionsSelected)
-      // запрос на список
+      this.$emit('filterList', this.optionsSelected)
     },
     updateOptions (localOptionsSelected, filterName) {
-      this.optionsSelected[filterName] = localOptionsSelected
-    },
-    removeOptionsSelected () {
-      this.optionsSelected = []
+      this.$set(this.optionsSelected, filterName, localOptionsSelected)
     },
     removeFilters () {
-      this.removeOptionsSelected()
+      this.filters.forEach((filter) => {
+      this.$set(this.optionsSelected, filter.filterName, [])
+    })
+    },
+    removeFilter (filter) {
+      this.$set(this.optionsSelected, filter.filterName, [])
     }
   }
 

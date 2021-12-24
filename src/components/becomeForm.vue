@@ -135,7 +135,7 @@ export default {
   components: { DefaultButton, VuePhoneNumberInput },
   data () {
     return {
-      animals: ['Кошки', 'Собаки', 'Экзотические животные'],
+      animals: ['Кошки', 'Собаки', 'Птицы', 'Рыбки', 'Грызуны', 'Экзотические животные'],
       cityAreas: ['Север', 'Восток', 'Запад', 'Юг', 'Центр'],
       buttonInfo: {
         text: 'Отправить',
