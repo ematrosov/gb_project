@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import ReviewsForm from "./ReviewsForm.vue";
+import ReviewsForm from "../components/ReviewsForm.vue";
 export default {
   name: "ReviewsFormModal",
 

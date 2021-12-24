@@ -34,6 +34,7 @@
     <SitterReviewModal :sitter="sitter" />
     </div>
     </div>
+    <ReviewBlock :unit="sitter" />
   </div>
 </template>
 
@@ -42,10 +43,11 @@
 import Rating from '../components/rating'
 import InfoIcon from '../components/infoIcon'
 import SitterReviewModal from '../components/sitterReviewModal'
+import ReviewBlock from '../components/reviewBlock'
 
 
 export default {
-  components: { Rating, InfoIcon, SitterReviewModal },
+  components: { Rating, InfoIcon, SitterReviewModal, ReviewBlock },
   data () {
     return {
       sitter: {}
@@ -72,9 +74,55 @@ export default {
             { icon: 'mdi-calendar-range', text: 'Стаж', value: '2 года' },
             { icon: 'mdi-map-marker', text: 'Район города', value: 'Юг' },
             { icon: 'mdi-paw', text: 'Специализация', value: 'Собаки' },
+          ],
+          reviews: [
+            {
+              avatar: 'jane-foster.jpeg',
+              name: 'Thomas Anderson',
+              date: '13 января 2029 г.',
+              text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
+              thumbsUp: 13,
+              thumbsDown: 3,
+              upvoted: false,
+              downvoted: false,
+              rating: 4
+            },
+            {
+              avatar: 'jane-foster.jpeg',
+              name: 'Thomas Anderson',
+              date: '13 января 2029 г.',
+              text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
+              thumbsUp: 40,
+              thumbsDown: 5,
+              upvoted: false,
+              downvoted: false,
+              rating: 3
+            },
+            {
+              avatar: 'jane-foster.jpeg',
+              name: 'Thomas Anderson',
+              date: '13 января 2029 г.',
+              text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
+              thumbsUp: 15,
+              thumbsDown: 13,
+              upvoted: false,
+              downvoted: false,
+              rating: 5
+            },
+            {
+              avatar: 'jane-foster.jpeg',
+              name: 'Thomas Anderson',
+              date: '13 января 2029 г.',
+              text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
+              thumbsUp: 15,
+              thumbsDown: 1,
+              upvoted: false,
+              downvoted: false,
+              rating: 4
+            }
           ]
         }
-    }
+      }
     if (this.$route.params.id == 214) {
       this.sitter = {
           name: 'Alex Rakatanski',
@@ -92,6 +140,52 @@ export default {
             { icon: 'mdi-calendar-range', text: 'Стаж', value: '1 год' },
             { icon: 'mdi-map-marker', text: 'Район города', value: 'Центр' },
             { icon: 'mdi-paw', text: 'Специализация', value: 'Кошки' },
+          ],
+          reviews: [
+            {
+              avatar: 'jane-foster.jpeg',
+              name: 'Thomas Anderson',
+              date: '13 января 2029 г.',
+              text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
+              thumbsUp: 14,
+              thumbsDown: 6,
+              upvoted: false,
+              downvoted: false,
+              rating: 4
+            },
+            {
+              avatar: 'jane-foster.jpeg',
+              name: 'Thomas Anderson',
+              date: '13 января 2029 г.',
+              text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
+              thumbsUp: 13,
+              thumbsDown: 16,
+              upvoted: false,
+              downvoted: false,
+              rating: 5
+            },
+            {
+              avatar: 'jane-foster.jpeg',
+              name: 'Thomas Anderson',
+              date: '13 января 2029 г.',
+              text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
+              thumbsUp: 130,
+              thumbsDown: 14,
+              upvoted: false,
+              downvoted: false,
+              rating: 4
+            },
+            {
+              avatar: 'jane-foster.jpeg',
+              name: 'Thomas Anderson',
+              date: '13 января 2029 г.',
+              text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
+              thumbsUp: 103,
+              thumbsDown: 17,
+              upvoted: false,
+              downvoted: false,
+              rating: 3
+            }
           ]
         }
     }
@@ -112,6 +206,52 @@ export default {
             { icon: 'mdi-calendar-range', text: 'Стаж', value: '5 лет' },
             { icon: 'mdi-map-marker', text: 'Район города', value: 'Север' },
             { icon: 'mdi-paw', text: 'Специализация', value: 'Экзотические животные' },
+          ],
+          reviews: [
+            {
+              avatar: 'jane-foster.jpeg',
+              name: 'Thomas Anderson',
+              date: '13 января 2029 г.',
+              text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
+              thumbsUp: 15,
+              thumbsDown: 3,
+              upvoted: false,
+              downvoted: false,
+              rating: 4
+            },
+            {
+              avatar: 'jane-foster.jpeg',
+              name: 'Thomas Anderson',
+              date: '13 января 2029 г.',
+              text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
+              thumbsUp: 104,
+              thumbsDown: 18,
+              upvoted: false,
+              downvoted: false,
+              rating: 1
+            },
+            {
+              avatar: 'jane-foster.jpeg',
+              name: 'Thomas Anderson',
+              date: '13 января 2029 г.',
+              text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
+              thumbsUp: 103,
+              thumbsDown: 61,
+              upvoted: false,
+              downvoted: false,
+              rating: 4
+            },
+            {
+              avatar: 'jane-foster.jpeg',
+              name: 'Thomas Anderson',
+              date: '13 января 2029 г.',
+              text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
+              thumbsUp: 10,
+              thumbsDown: 1,
+              upvoted: false,
+              downvoted: false,
+              rating: 3
+            }
           ]
         }
     }

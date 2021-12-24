@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import FilterCheckbox from './filterCheckbox'
+import FilterCheckbox from '../components/filterCheckbox'
 
 export default {
   components: { FilterCheckbox },

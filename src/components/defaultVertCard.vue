@@ -36,9 +36,9 @@
 </template>
 
 <script>
-import InfoIcon from './infoIcon'
-import Rating from './rating'
-import DefaultButton from './defaultButton'
+import InfoIcon from '../components/infoIcon'
+import Rating from '../components/rating'
+import DefaultButton from '../components/defaultButton'
 
 export default {
   components: { InfoIcon, Rating, DefaultButton },
