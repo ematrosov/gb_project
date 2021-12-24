@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+    <div class="container">
     <div class="mt-6 mb-6">
     <h1 class="it-title">
       {{ title }}
@@ -17,7 +17,7 @@
         <SittersList :sitters="sortedSitters" />
       </div>
     </div>
-    <div class="mt-6 mb-6">
+    <div class="mt-6 mb-6">      
       <Pagination :page="page" :count="count" :page-size="pageSize" @updatePage="updatePage" />
     </div>
   </div>

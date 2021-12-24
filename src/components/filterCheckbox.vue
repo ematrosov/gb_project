@@ -9,13 +9,11 @@
     <div
       v-for="(option, index) in filter.options"
       :key="index"
-      class="checkbox"
-    >
-      <v-checkbox
+      class="checkbox">
+      <v-checkbox      
         v-model="localOptionsSelected"
         :label="option.title"
         :value="option.title"
-        color="primary"
       />
     </div>
   </v-list>
@@ -39,18 +37,15 @@ export default {
       localOptionsSelected: []
     }
   },
-
   watch: {
     localOptionsSelected (localOptionsSelected) {
-      this.$emit('updateOptions', localOptionsSelected)
+      this.$emit('updateOptions', localOptionsSelected, this.filter.filterName)
     },
-
     optionsSelected (optionsSelected) {
       this.localOptionsSelected = optionsSelected
       this.$emit('updateOptions', this.localOptionsSelected)
     }
-  },
-
+  },  
   methods: {
     removeFilters () {
       this.filter.options.forEach((option) => {

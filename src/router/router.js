@@ -1,11 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import HelloWorld from '../pages/HelloWorld'
+import Main from '../components/Main'
 import Find from '../pages/Find'
 import Reviews from '../pages/Reviews'
-import Become from '../pages/Become'
+import About from '../pages/About'
 import Sitter from '../pages/Sitter'
+import Become from '../pages/Become'
+
+
 
 Vue.use(VueRouter);
 
@@ -13,7 +16,7 @@ let router = new VueRouter({
     routes: [
         {
             path: '',
-            component: HelloWorld
+            component: Main
         },
         {
             path: '/find-sitter',
@@ -31,9 +34,16 @@ let router = new VueRouter({
             path: '/find-sitter/:id',
             name: 'find-sitter',
             component: Sitter
+        },
+        {
+            path: '/about',
+            component: About
         }
     ],
     mode: 'history'
 })
 
+
 export default router;
+
+
