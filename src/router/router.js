@@ -6,9 +6,8 @@ import Find from '../pages/Find'
 import Reviews from '../pages/Reviews'
 import About from '../pages/About'
 import Sitter from '../pages/Sitter'
+import About from '../pages/About'
 import Become from '../pages/Become'
-
-
 
 Vue.use(VueRouter);
 
