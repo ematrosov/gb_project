@@ -7,7 +7,7 @@
             <div class="listing__list__header">
               <div class="row-comments">
                 <div class="ml-n2">
-                  <strong>Отзывов:</strong> 2
+                  <h3>Отзывы о работе:</h3> 
                 </div>
                 <div>
                   <FilterSelect :filters="filters" @changeFilter="changeFilter" />
