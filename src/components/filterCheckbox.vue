@@ -22,8 +22,8 @@ export default {
       default: () => {}
     },
     optionsSelected: {
-      type: Array,
-      default: () => []
+      type: Object,
+      default: () => {}
     }
   },
   data () {
@@ -31,25 +31,22 @@ export default {
       localOptionsSelected: []
     }
   },
+  computed: {
+    remoteOptionsSelected () {
+      return this.optionsSelected[this.filter.filterName];
+    }
+  },
   watch: {
     localOptionsSelected (localOptionsSelected) {
+      if (localOptionsSelected.length !== 0) {
       this.$emit('updateOptions', localOptionsSelected, this.filter.filterName)
+      }
     },
-    optionsSelected (optionsSelected) {
-      console.log(optionsSelected)
-      // this.localOptionsSelected = optionsSelected
-      // this.$emit('updateOptions', this.localOptionsSelected)
-    },
-  },  
-  // methods: {
-  //   removeFilters () {
-  //     this.filter.options.forEach((option) => {
-  //       const myIndex = this.localOptionsSelected.indexOf(option.title)
-  //       if (myIndex !== -1) {
-  //         this.localOptionsSelected.splice(myIndex, 1)
-  //       }
-  //     })
-  //   }
-  // }
+    remoteOptionsSelected () {
+      if (this.optionsSelected[this.filter.filterName].length === 0) {
+        this.localOptionsSelected = []
+      }
+    }
+  }
 }
 </script>

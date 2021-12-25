@@ -39,7 +39,7 @@ export default {
   components: { FilterCheckbox, DefaultButton },
   data () {
     return {
-      optionsSelected: [],
+      optionsSelected: {},
       header: 'Фильтры',
       buttonInfo: {
         text: 'Искать',
@@ -71,7 +71,7 @@ export default {
       ]
     }
   },
-    mounted () {
+  mounted () {
     this.filters.forEach((filter) => {
       this.$set(this.optionsSelected, filter.filterName, [])
     })
