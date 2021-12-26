@@ -1,27 +1,52 @@
 <template>
   <div class="login">
     <h1 class="login_title">Войти</h1>
-    <form class="login_form">
+    <form class="login_form" @submit.prevent="authorization">
       <input
         type="email"
         class="login_form__input"
         placeholder="Введите email"
+        v-model="email"
       />
       <input
         type="password"
         class="login_form__input"
         placeholder="Введите пароль"
+        v-model="password"
       />
       <input type="submit" class="login_form__btn" placeholder="Войти" />
     </form>
     <div class="no-login">
       <p>Еще не зарегистрированы?</p>
-      <a href="">Пройти регистрацию</a>
+      <router-link to="/registration">Пройти регистрацию</router-link>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
+export default {
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+  methods: {
+    authorization() {
+      const { email, password } = this;
+
+      this.$store
+        .dispatch("login", { email, password })
+        .then(() => this.$router.push("/"))
+        .catch((err) => console.log(err));
+    },
+  },
+  computed: {
+    ...mapGetters(["getUsers"]),
+  },
+};
 </script>
 
 <style>

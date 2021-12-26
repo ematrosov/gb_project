@@ -6,6 +6,7 @@ import Find from '../pages/Find'
 import Reviews from '../pages/Reviews'
 import Login from '../pages/Login'
 import Profile from '../pages/Profile'
+import Registration from '../pages/Registration'
 
 Vue.use(VueRouter);
 
@@ -30,6 +31,10 @@ let router = new VueRouter({
         {
             path: '/profile',
             component: Profile
+        },
+        {
+            path: '/registration',
+            component: Registration
         }
     ],
     mode: 'history'
