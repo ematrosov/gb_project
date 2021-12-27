@@ -6,82 +6,81 @@
           {{ header }}
         </div>
         <span class="filter__reboot" @click="removeFilters" />
-     </div>
-      <div
-        v-for="(filter, index) in filters"
-        :key="index"
-        class="filter-item"
-        >
+      </div>
+      <div v-for="(filter, index) in filters" :key="index" class="filter-item">
         <FilterCheckbox
-        :filter="filter"
-        :options-selected="optionsSelected"
-        @updateOptions="updateOptions"
+          :filter="filter"
+          :options-selected="optionsSelected"
+          @updateOptions="updateOptions"
         />
-      </div>  
+      </div>
       <div class="filter__foot">
-        <DefaultButton :button-info="buttonInfo" @eventHandler="getSittersList" />
+        <DefaultButton
+          :button-info="buttonInfo"
+          @eventHandler="getSittersList"
+        />
       </div>
     </form>
   </aside>
 </template>
 
 <script>
-import FilterCheckbox from './filterCheckbox'
-import DefaultButton from './defaultButton'
+import FilterCheckbox from "./filterCheckbox";
+import DefaultButton from "./defaultButton";
 
 export default {
   components: { FilterCheckbox, DefaultButton },
-  data () {
+  data() {
     return {
-      optionsSelected: [],
-      header: 'Фильтры',
+      optionsSelected: {},
+      header: "Фильтры",
       buttonInfo: {
-        text: 'Искать',
+        text: "Искать",
       },
       filters: [
         {
-          title: 'Район города',
-          filterName: 'cityAreas',
+          title: "Район города",
+          filterName: "cityAreas",
           options: [
-            { title: 'Север' },
-            { title: 'Юг' },
-            { title: 'Восток' },
-            { title: 'Запад' },
-            { title: 'Центр' }
-          ]
+            { title: "Север" },
+            { title: "Юг" },
+            { title: "Восток" },
+            { title: "Запад" },
+            { title: "Центр" },
+          ],
         },
         {
-          title: 'Специализация',
-          filterName: 'specialties',
+          title: "Специализация",
+          filterName: "specialties",
           options: [
-            { title: 'Кошки' },
-            { title: 'Собаки' },
-            { title: 'Экзотические животные' }
-          ]
-        }
-      ]
-    }
+            { title: "Кошки" },
+            { title: "Собаки" },
+            { title: "Экзотические животные" },
+          ],
+        },
+      ],
+    };
   },
-    mounted () {
+  mounted() {
     this.filters.forEach((filter) => {
-      this.optionsSelected[filter.filterName] = []
-    })
+      this.$set(this.optionsSelected, filter.filterName, []);
+    });
   },
   methods: {
-    getSittersList () {
-      console.log(this.optionsSelected)
-      // запрос на список
+    getSittersList() {
+      this.$emit("filterList", this.optionsSelected);
     },
-    updateOptions (localOptionsSelected, filterName) {
-      this.optionsSelected[filterName] = localOptionsSelected
+    updateOptions(localOptionsSelected, filterName) {
+      this.$set(this.optionsSelected, filterName, localOptionsSelected);
     },
-    removeOptionsSelected () {
-      this.optionsSelected = []
+    removeFilters() {
+      this.filters.forEach((filter) => {
+        this.$set(this.optionsSelected, filter.filterName, []);
+      });
     },
-    removeFilters () {
-      this.removeOptionsSelected()
+    removeFilter(filter) {
+      this.$set(this.optionsSelected, filter.filterName, []);
     }
   }
-
-}
+};
 </script>

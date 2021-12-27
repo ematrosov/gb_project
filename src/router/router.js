@@ -8,6 +8,9 @@ import Reviews from '../pages/Reviews'
 import Become from '../pages/Become'
 import Sitter from '../pages/Sitter'
 import About from '../pages/About'
+import Login from '../pages/Login'
+import Profile from '../pages/Profile'
+import Registration from '../pages/Registration'
 
 Vue.use(VueRouter);
 
@@ -38,11 +41,24 @@ let router = new VueRouter({
         {
             path: '/find-sitter/:id',
             name: 'find-sitter',
+            //path: '/Sitter',
             component: Sitter
         },
         {
             path: '/about',
             component: About
+        },
+        {
+            path: '/login',
+            component: Login
+        },
+        {
+            path: '/profile',
+            component: Profile
+        },
+        {
+            path: '/registration',
+            component: Registration
         }
     ],
     mode: 'history'

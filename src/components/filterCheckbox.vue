@@ -1,11 +1,5 @@
 <template>
-  <v-list flat>
-    <div class="filter-item__head">
-      <div>
-        {{ filter.title }}
-      </div>
-      <div class="filter-item__icon" @click="removeFilters" />
-    </div>
+  <v-list flat>    
     <div
       v-for="(option, index) in filter.options"
       :key="index"
@@ -28,8 +22,8 @@ export default {
       default: () => {}
     },
     optionsSelected: {
-      type: Array,
-      required: true
+      type: Object,
+      default: () => {}
     }
   },
   data () {
@@ -37,24 +31,22 @@ export default {
       localOptionsSelected: []
     }
   },
+  computed: {
+    remoteOptionsSelected () {
+      return this.optionsSelected[this.filter.filterName];
+    }
+  },
   watch: {
     localOptionsSelected (localOptionsSelected) {
+      if (localOptionsSelected.length !== 0) {
       this.$emit('updateOptions', localOptionsSelected, this.filter.filterName)
+      }
     },
-    optionsSelected (optionsSelected) {
-      this.localOptionsSelected = optionsSelected
-      this.$emit('updateOptions', this.localOptionsSelected)
+    remoteOptionsSelected () {
+      if (this.optionsSelected[this.filter.filterName].length === 0) {
+        this.localOptionsSelected = []
+      }
     }
-  },  
-  methods: {
-    removeFilters () {
-      this.filter.options.forEach((option) => {
-        const myIndex = this.localOptionsSelected.indexOf(option.title)
-        if (myIndex !== -1) {
-          this.localOptionsSelected.splice(myIndex, 1)
-        }
-      })
-    }
-  }
+  }  
 }
 </script>
