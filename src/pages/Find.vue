@@ -10,7 +10,7 @@
     </div>
     <div class="row mt-12">
       <div class="col filtration_block">
-        <SittersFilters @filterList="filterList"/>
+        <SittersFilters />
       </div>
       <div class="col">
         <FilterSelect :filters="filters" @changeFilter="changeFilter" />
@@ -51,8 +51,6 @@ export default {
           buttonInfo: {
             text: 'Посмотреть профиль'
           },
-          cityAreas: ['Юг'],
-          specialties: ['Собаки'],
           info: [
             { icon: 'mdi-calendar-range', text: 'Стаж', value: '2 года' },
             { icon: 'mdi-map-marker', text: 'Район города', value: 'Юг' },
@@ -68,8 +66,6 @@ export default {
           buttonInfo: {
             text: 'Посмотреть профиль'
           },
-          cityAreas: ['Юг'],
-          specialties: ['Собаки'],
           info: [
             { icon: 'mdi-calendar-range', text: 'Стаж', value: '1 год' },
             { icon: 'mdi-map-marker', text: 'Район города', value: 'Центр' },
@@ -84,9 +80,7 @@ export default {
           exp: 5,
           buttonInfo: {
             text: 'Посмотреть профиль'
-          },
-          cityAreas: ['Юг'],
-          specialties: ['Собаки'],          
+          },   
           info: [
             { icon: 'mdi-calendar-range', text: 'Стаж', value: '5 лет' },
             { icon: 'mdi-map-marker', text: 'Район города', value: 'Север' },
@@ -106,23 +100,6 @@ export default {
     },
     getSittersList () {
         //запрос на сервер
-    },
-    filterList (optionsSelected) {
-      if (optionsSelected.cityAreas.length > 0 && optionsSelected.specialties.length > 0 ) {
-      let result = this.sitters.filter( sitter => optionsSelected.cityAreas.some( cityArea => sitter.cityAreas.includes(cityArea) ) && optionsSelected.specialties.some( specialty => sitter.specialties.includes(specialty) )  );
-      this.sortedSitters = result
-      }
-      if (optionsSelected.cityAreas.length === 0 && optionsSelected.specialties.length > 0 ) {
-      let result = this.sitters.filter( sitter => optionsSelected.specialties.some( specialty => sitter.specialties.includes(specialty) )  );
-      this.sortedSitters = result
-      }
-      if (optionsSelected.cityAreas.length > 0 && optionsSelected.specialties.length === 0 ) {
-      let result = this.sitters.filter( sitter => optionsSelected.cityAreas.some( cityArea => sitter.cityAreas.includes(cityArea) )  );
-      this.sortedSitters = result
-      }
-      if (optionsSelected.cityAreas.length === 0 && optionsSelected.specialties.length === 0 ) {
-      this.sortedSitters = this.sitters
-      }
     },
     changeFilter (filter) {
       if (filter === 'По рейтингу') {

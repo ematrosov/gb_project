@@ -8,9 +8,14 @@
         <span class="filter__reboot" @click="removeFilters" />
       </div>
       <div v-for="(filter, index) in filters" :key="index" class="filter-item">
+      <div class="filter-item__head">
+        <div>
+          {{ filter.title }}
+        </div>
+        <div class="filter-item__icon" @click="removeFilters(filter)" />
+      </div>
         <FilterCheckbox
           :filter="filter"
-          :options-selected="optionsSelected"
           @updateOptions="updateOptions"
         />
       </div>
@@ -68,18 +73,16 @@ export default {
   },
   methods: {
     getSittersList() {
-      this.$emit("filterList", this.optionsSelected);
+      console.log(this.optionsSelected)
     },
     updateOptions(localOptionsSelected, filterName) {
       this.$set(this.optionsSelected, filterName, localOptionsSelected);
     },
     removeFilters() {
-      this.filters.forEach((filter) => {
-        this.$set(this.optionsSelected, filter.filterName, []);
-      });
+      //
     },
-    removeFilter(filter) {
-      this.$set(this.optionsSelected, filter.filterName, []);
+    removeFilter() {
+      //
     }
   }
 };
