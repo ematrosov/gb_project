@@ -44,10 +44,6 @@
           <span class="mr-5">О нас</span>
         </v-btn>
 
-        <v-btn href="/about" text>
-          <span class="mr-5">О нас</span>
-        </v-btn>
-
         <v-btn href="/login" text>
           <span class="mr-5">Войти</span>
         </v-btn>
