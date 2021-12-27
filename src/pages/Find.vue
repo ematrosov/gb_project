@@ -108,22 +108,34 @@ export default {
         //запрос на сервер
     },
     filterList (optionsSelected) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5feafb1186abb96e2f5d7991ad646cdd719b8c19
       if (optionsSelected.cityAreas.length > 0 && optionsSelected.specialties.length > 0 ) {
       let result = this.sitters.filter( sitter => optionsSelected.cityAreas.some( cityArea => sitter.cityAreas.includes(cityArea) ) && optionsSelected.specialties.some( specialty => sitter.specialties.includes(specialty) )  );
       this.sortedSitters = result
       }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5feafb1186abb96e2f5d7991ad646cdd719b8c19
       if (optionsSelected.cityAreas.length === 0 && optionsSelected.specialties.length > 0 ) {
       let result = this.sitters.filter( sitter => optionsSelected.specialties.some( specialty => sitter.specialties.includes(specialty) )  );
       this.sortedSitters = result
       }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5feafb1186abb96e2f5d7991ad646cdd719b8c19
       if (optionsSelected.cityAreas.length > 0 && optionsSelected.specialties.length === 0 ) {
       let result = this.sitters.filter( sitter => optionsSelected.cityAreas.some( cityArea => sitter.cityAreas.includes(cityArea) )  );
       this.sortedSitters = result
       }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5feafb1186abb96e2f5d7991ad646cdd719b8c19
       if (optionsSelected.cityAreas.length === 0 && optionsSelected.specialties.length === 0 ) {
       this.sortedSitters = this.sitters
       }
@@ -138,7 +150,11 @@ export default {
     },
     sortedSittersRating () {
       return JSON.parse(JSON.stringify(this.sortedSitters)).sort(function (a, b) {
+<<<<<<< HEAD
         return b.rating - a.rating
+=======
+        return b.rating - a.rating        
+>>>>>>> 5feafb1186abb96e2f5d7991ad646cdd719b8c19
       })
     },
     sortedSittersExp () {

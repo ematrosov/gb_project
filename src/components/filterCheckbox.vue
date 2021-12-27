@@ -1,5 +1,9 @@
 <template>
+<<<<<<< HEAD
   <v-list flat>
+=======
+  <v-list flat>    
+>>>>>>> 5feafb1186abb96e2f5d7991ad646cdd719b8c19
     <div
       v-for="(option, index) in filter.options"
       :key="index"
@@ -47,6 +51,6 @@ export default {
         this.localOptionsSelected = []
       }
     }
-  }
+  }  
 }
 </script>

@@ -44,28 +44,18 @@
           <span class="mr-5">О нас</span>
         </v-btn>
 
-        <v-btn href="/about" text>
-          <span class="mr-5">О нас</span>
+        <v-btn href="/login" text>
+          <span class="mr-5">Войти</span>
         </v-btn>
 
-        <v-menu offset-y class="mr-5">
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn elevation="0" color="#778899" v-bind="attrs" v-on="on">
-              Профиль
-            </v-btn>
-          </template>
-          <v-list color="#778899">
-            <v-list-item
-              v-for="(prof, index) in profiles"
-              :key="index"
-              :href="prof.path"
-            >
-              <v-btn color="#ffffff" text>
-                <span class="mr-5">{{ prof.title }}</span>
-              </v-btn>
-            </v-list-item>
-          </v-list>
-        </v-menu>
+        <v-btn href="/registration" text>
+          <span class="mr-5">Регистрация</span>
+        </v-btn>
+
+        <v-btn href="/become-sitter" text>
+          <span class="mr-5">Стать пэт-ситтером</span>
+        </v-btn>              
+       
       </div>
     </v-app-bar>
 
@@ -96,12 +86,8 @@
 export default {
   name: "App",
   data: () => ({
-    items: [{ title: "Найти пэт-ситтера", path: "/find-sitter" }],
-    profiles: [
-      { title: "Профиль получателя услуг", path: "/" },
-      { title: "Профиль пэт-ситтера", path: "/become-sitter" },
-    ],
-    icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
+    items: [{ title: "Найти пэт-ситтера", path: "/find-sitter" }],    
+    icons: ["mdi-facebook", "mdi-twitter", "mdi-instagram"],
     //
   }),
 };

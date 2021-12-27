@@ -1,103 +1,94 @@
 <template>
-<div>
-  <v-form ref="form">
-    <v-card-text>
+  <div>
+    <v-form ref="form">
+      <v-card-text>
+        <v-text-field
+          label="Ваше имя"
+          outlined
+          clearable
+          v-model="application.name"
+          @input="checkNameField"
+          :error-messages="errorMessages.name"
+        ></v-text-field>
 
-      <v-text-field
-      label="Ваше имя"
-      outlined
-      clearable
-      v-model="application.name"
-      @input="checkNameField"
-      :error-messages = "errorMessages.name"
-      ></v-text-field>
+        <v-text-field
+          label="Ваша фамилия"
+          outlined
+          clearable
+          v-model="application.lastName"
+          @input="checkLastNameField"
+          :error-messages="errorMessages.lastName"
+        ></v-text-field>
 
-      <v-text-field
-      label="Ваша фамилия"
-      outlined
-      clearable
-      v-model="application.lastName"
-      @input="checkLastNameField"
-      :error-messages = "errorMessages.lastName"
-      ></v-text-field>
+        <v-textarea
+          v-model="application.text"
+          label="Расскажите о Вашем опыте работы с животными и почему Вы хотите стать нашим ситтером"
+          outlined
+          clearable
+          :error-messages="errorMessages.text"
+          @input="checkTextField"
+        />
 
-      <v-textarea
-      v-model="application.text"
-      label="Расскажите о Вашем опыте работы с животными и почему Вы хотите стать нашим ситтером"
-      outlined
-      clearable
-      :error-messages="errorMessages.text"
-      @input="checkTextField"
-      />
+        <v-select
+          :items="animals"
+          label="Выберите, с какими животными Вы готовы работать"
+          chips
+          multiple
+          v-model="application.animals"
+          :error-messages="errorMessages.animals"
+          @input="checkAnimalsField"
+        ></v-select>
 
-      <v-select
-      :items="animals"
-      label="Выберите, с какими животными Вы готовы работать"
-      chips
-      multiple
-      v-model="application.animals"
-      :error-messages="errorMessages.animals"
-      @input="checkAnimalsField"
-      ></v-select>
+        <v-select
+          :items="cityAreas"
+          label="Выберите, в каких районах города Вы готовы работать"
+          chips
+          multiple
+          v-model="application.cityAreas"
+          :error-messages="errorMessages.cityAreas"
+          @input="checkCityAreasField"
+        ></v-select>
 
+        <v-label> Номер телефона для связи </v-label>
 
-      <v-select
-      :items="cityAreas"
-      label="Выберите, в каких районах города Вы готовы работать"
-      chips
-      multiple
-      v-model="application.cityAreas"
-      :error-messages="errorMessages.cityAreas"
-      @input="checkCityAreasField"
-      ></v-select>
+        <VuePhoneNumberInput class="mb-5" v-model="application.number" />
 
-      <v-label
-      > Номер телефона для связи
-      </v-label>
+        <h4 class="red--text font-weight-regular">
+          {{ errorMessages.number }}
+        </h4>
 
-      <VuePhoneNumberInput
-      class="mb-5"
-      v-model="application.number"
-      />
+        <v-text-field
+          label="Ваша почта"
+          outlined
+          clearable
+          v-model="application.email"
+          @input="checkEmailField"
+          :error-messages="errorMessages.email"
+        ></v-text-field>
 
-      <h4 class="red--text font-weight-regular" >{{errorMessages.number}}</h4>
+        <v-text-field
+          label="Ссылка на Вашу страницу в социальных сетях"
+          outlined
+          clearable
+          v-model="application.socialMedia"
+          @input="checkSocialMediaField"
+          :error-messages="errorMessages.socialMedia"
+        ></v-text-field>
 
-      <v-text-field
-      label="Ваша почта"
-      outlined
-      clearable
-      v-model="application.email"
-      @input="checkEmailField"
-      :error-messages = "errorMessages.email"
-      ></v-text-field>
-
-      <v-text-field
-      label="Ссылка на Вашу страницу в социальных сетях"
-      outlined
-      clearable
-      v-model="application.socialMedia"
-      @input="checkSocialMediaField"
-      :error-messages = "errorMessages.socialMedia"
-      ></v-text-field>
-
-     <v-checkbox
-      v-model="application.agreement"
-      label="Согласие на обработку персональных данных"
-      :error-messages = "errorMessages.agreement"
-     ></v-checkbox>
-      
-    </v-card-text>
+        <v-checkbox
+          v-model="application.agreement"
+          label="Согласие на обработку персональных данных"
+          :error-messages="errorMessages.agreement"
+        ></v-checkbox>
+      </v-card-text>
     </v-form>
-    <DefaultButton class="applicationBtn" :button-info="buttonInfo" @eventHandler="sendApplication" />
-    <v-dialog
-      v-model="loading"
-      persistent
-      width="300"
-    >
-      <v-card
-        color="primary"
-        dark
-      >
+    <DefaultButton
+      class="applicationBtn"
+      :button-info="buttonInfo"
+      @eventHandler="sendApplication"
+    />
+    <v-dialog v-model="loading" persistent width="300">
+      <v-card color="primary" dark>
         <v-card-text class="pt-2">
           Пожалуйста, подождите
           <v-progress-linear
@@ -108,172 +99,195 @@
         </v-card-text>
       </v-card>
     </v-dialog>
-    <v-dialog
-      v-model="dialog"
-      width="500"
-    >
+    <v-dialog v-model="dialog" width="500">
       <v-card>
-        <v-card-title class="text-h5">
-          Ваша заявка отправлена
-        </v-card-title>
+        <v-card-title class="text-h5"> Ваша заявка отправлена </v-card-title>
 
         <v-card-text>
           Наши менеджеры свяжутся с Вами в ближайшее время, спасибо!
         </v-card-text>
       </v-card>
     </v-dialog>
-</div>
+  </div>
 </template>
 
 
 <script>
-import DefaultButton from './defaultButton'
-import VuePhoneNumberInput from 'vue-phone-number-input';
-import 'vue-phone-number-input/dist/vue-phone-number-input.css';
+import DefaultButton from "./defaultButton";
+import VuePhoneNumberInput from "vue-phone-number-input";
+import "vue-phone-number-input/dist/vue-phone-number-input.css";
 
 export default {
   components: { DefaultButton, VuePhoneNumberInput },
-  data () {
+  data() {
     return {
+<<<<<<< HEAD
       animals: ['Кошки', 'Собаки', 'Птицы', 'Рыбки', 'Грызуны', 'Экзотические животные'],
       cityAreas: ['Север', 'Восток', 'Запад', 'Юг', 'Центр'],
+=======
+      animals: [
+        "Кошки",
+        "Собаки",
+        "Птицы",
+        "Рыбки",
+        "Грызуны",
+        "Экзотические животные",
+      ],
+      cityAreas: ["Север", "Восток", "Запад", "Юг", "Центр"],
+>>>>>>> 5feafb1186abb96e2f5d7991ad646cdd719b8c19
       buttonInfo: {
-        text: 'Отправить',
+        text: "Отправить",
       },
       loading: false,
       dialog: false,
       reg: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/,
       application: {
-        name: '',
-        lastName: '',
-        text: '',
+        name: "",
+        lastName: "",
+        text: "",
         animals: [],
         cityAreas: [],
-        number: '',
-        socialMedia: '',
-        email: '',
+        number: "",
+        socialMedia: "",
+        email: "",
         agreement: false,
       },
       errorMessages: {
-        name: '',
-        lastName: '',
-        text: '',
-        animals: '',
-        cityAreas: '',
-        number: '',
-        socialMedia: '',
-        email: '',
-        agreement: ''
-      }
-    }
+        name: "",
+        lastName: "",
+        text: "",
+        animals: "",
+        cityAreas: "",
+        number: "",
+        socialMedia: "",
+        email: "",
+        agreement: "",
+      },
+    };
   },
 
   methods: {
-    sendApplication () {
+    sendApplication() {
       if (!this.validate()) {
-        return false
+        return false;
       }
-        this.loading = true
-        setTimeout(() => (this.loading = false, this.dialog = true), 2000)
+      this.loading = true;
+      setTimeout(() => ((this.loading = false), (this.dialog = true)), 2000);
     },
 
-    checkNameField () {
-      if (this.application.name === '' || this.application.name === null) {
-        this.errorMessages.name = 'Поле должно быть заполнено'
-        return false
+    checkNameField() {
+      if (this.application.name === "" || this.application.name === null) {
+        this.errorMessages.name = "Поле должно быть заполнено";
+        return false;
       } else {
-        this.errorMessages.name = ''
+        this.errorMessages.name = "";
       }
-      return true
+      return true;
     },
 
-    checkLastNameField () {
-      if (this.application.lastName === '' || this.application.lastName === null) {
-        this.errorMessages.lastName = 'Поле должно быть заполнено'
-        return false
+    checkLastNameField() {
+      if (
+        this.application.lastName === "" ||
+        this.application.lastName === null
+      ) {
+        this.errorMessages.lastName = "Поле должно быть заполнено";
+        return false;
       } else {
-        this.errorMessages.lastName = ''
+        this.errorMessages.lastName = "";
       }
-      return true
+      return true;
     },
 
-    checkTextField () {
-      if (this.application.text === '' || this.application.text === null) {
-        this.errorMessages.text = 'Поле должно быть заполнено'
-        return false
+    checkTextField() {
+      if (this.application.text === "" || this.application.text === null) {
+        this.errorMessages.text = "Поле должно быть заполнено";
+        return false;
       } else {
-        this.errorMessages.text = ''
+        this.errorMessages.text = "";
       }
-      return true
+      return true;
     },
 
-    checkAnimalsField () {
+    checkAnimalsField() {
       if (this.application.animals.length === 0) {
-        this.errorMessages.animals = 'Отметьте животных'
-        return false
+        this.errorMessages.animals = "Отметьте животных";
+        return false;
       } else {
-        this.errorMessages.animals = ''
+        this.errorMessages.animals = "";
       }
-      return true
+      return true;
     },
 
-    checkCityAreasField () {
+    checkCityAreasField() {
       if (this.application.cityAreas.length === 0) {
-        this.errorMessages.cityAreas = 'Отметьте районы города'
-        return false
+        this.errorMessages.cityAreas = "Отметьте районы города";
+        return false;
       } else {
-        this.errorMessages.cityAreas = ''
+        this.errorMessages.cityAreas = "";
       }
-      return true
+      return true;
     },
 
-     checkNumberField () {
-      if (this.application.number === '' || this.application.number === null) {
-        this.errorMessages.number = 'Поле должно быть заполнено'
-        return false
+    checkNumberField() {
+      if (this.application.number === "" || this.application.number === null) {
+        this.errorMessages.number = "Поле должно быть заполнено";
+        return false;
       } else {
-        this.errorMessages.number = ''
+        this.errorMessages.number = "";
       }
-      return true
+      return true;
     },
 
-      checkEmailField () {
-      if (this.application.email === '' || this.application.email === null) {
-        this.errorMessages.email = 'Поле должно быть заполнено'
-        return false
-      } 
-      else if (this.reg.test(this.application.email) === false) {
-        this.errorMessages.email = 'Введите валидный email'
-        return false
+    checkEmailField() {
+      if (this.application.email === "" || this.application.email === null) {
+        this.errorMessages.email = "Поле должно быть заполнено";
+        return false;
+      } else if (this.reg.test(this.application.email) === false) {
+        this.errorMessages.email = "Введите валидный email";
+        return false;
       } else {
-        this.errorMessages.email = ''
+        this.errorMessages.email = "";
       }
-      return true
+      return true;
     },
 
-      checkSocialMediaField () {
-      if (this.application.socialMedia === '' || this.application.socialMedia === null) {
-        this.errorMessages.socialMedia = 'Поле должно быть заполнено'
-        return false
+    checkSocialMediaField() {
+      if (
+        this.application.socialMedia === "" ||
+        this.application.socialMedia === null
+      ) {
+        this.errorMessages.socialMedia = "Поле должно быть заполнено";
+        return false;
       } else {
-        this.errorMessages.socialMedia = ''
+        this.errorMessages.socialMedia = "";
       }
-      return true
+      return true;
     },
 
-      checkAgreementField () {
+    checkAgreementField() {
       if (this.application.agreement === false) {
-        this.errorMessages.agreement = 'Без согласия на обработку данных не получится обработать заявку'
-        return false
+        this.errorMessages.agreement =
+          "Без согласия на обработку данных не получится обработать заявку";
+        return false;
       } else {
-        this.errorMessages.agreement = ''
+        this.errorMessages.agreement = "";
       }
-      return true
+      return true;
     },
 
-    validate () {
-      return this.checkNameField() && this.checkLastNameField() && this.checkTextField() && this.checkAnimalsField() && this.checkCityAreasField() && this.checkNumberField() && this.checkEmailField() && this.checkSocialMediaField() && this.checkAgreementField()
-    }
-  }
-}
+    validate() {
+      return (
+        this.checkNameField() &&
+        this.checkLastNameField() &&
+        this.checkTextField() &&
+        this.checkAnimalsField() &&
+        this.checkCityAreasField() &&
+        this.checkNumberField() &&
+        this.checkEmailField() &&
+        this.checkSocialMediaField() &&
+        this.checkAgreementField()
+      );
+    },
+  },
+};
 </script>
