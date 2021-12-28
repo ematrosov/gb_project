@@ -12,11 +12,12 @@
         <div>
           {{ filter.title }}
         </div>
-        <div class="filter-item__icon" @click="removeFilters(filter)" />
+        <div class="filter-item__icon" @click="removeFilter(filter)" />
       </div>
         <FilterCheckbox
           :filter="filter"
           @updateOptions="updateOptions"
+          :options-selected="optionsSelected"
         />
       </div>
       <div class="filter__foot">
@@ -73,16 +74,18 @@ export default {
   },
   methods: {
     getSittersList() {
-      console.log(this.optionsSelected)
+      //
     },
     updateOptions(localOptionsSelected, filterName) {
       this.$set(this.optionsSelected, filterName, localOptionsSelected);
     },
     removeFilters() {
-      //
+      this.filters.forEach((filter) => {
+      this.$set(this.optionsSelected, filter.filterName, []);
+    });
     },
-    removeFilter() {
-      //
+    removeFilter(filter) {
+      this.$set(this.optionsSelected, filter.filterName, []);
     }
   }
 };
