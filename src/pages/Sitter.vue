@@ -77,7 +77,7 @@ export default {
           ],
           reviews: [
             {
-              avatar: 'jane-foster.jpeg',
+              avatar: 'default.jpeg',
               name: 'Thomas Anderson',
               date: '13 января 2029 г.',
               text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
@@ -88,7 +88,7 @@ export default {
               rating: 4
             },
             {
-              avatar: 'jane-foster.jpeg',
+              avatar: 'default.jpeg',
               name: 'Thomas Anderson',
               date: '13 января 2029 г.',
               text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
@@ -99,7 +99,7 @@ export default {
               rating: 3
             },
             {
-              avatar: 'jane-foster.jpeg',
+              avatar: 'default.jpeg',
               name: 'Thomas Anderson',
               date: '13 января 2029 г.',
               text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
@@ -110,7 +110,7 @@ export default {
               rating: 5
             },
             {
-              avatar: 'jane-foster.jpeg',
+              avatar: 'default.jpeg',
               name: 'Thomas Anderson',
               date: '13 января 2029 г.',
               text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
@@ -143,7 +143,7 @@ export default {
           ],
           reviews: [
             {
-              avatar: 'jane-foster.jpeg',
+              avatar: 'default.jpeg',
               name: 'Thomas Anderson',
               date: '13 января 2029 г.',
               text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
@@ -154,7 +154,7 @@ export default {
               rating: 4
             },
             {
-              avatar: 'jane-foster.jpeg',
+              avatar: 'default.jpeg',
               name: 'Thomas Anderson',
               date: '13 января 2029 г.',
               text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
@@ -165,7 +165,7 @@ export default {
               rating: 5
             },
             {
-              avatar: 'jane-foster.jpeg',
+              avatar: 'default.jpeg',
               name: 'Thomas Anderson',
               date: '13 января 2029 г.',
               text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
@@ -176,7 +176,7 @@ export default {
               rating: 4
             },
             {
-              avatar: 'jane-foster.jpeg',
+              avatar: 'default.jpeg',
               name: 'Thomas Anderson',
               date: '13 января 2029 г.',
               text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
@@ -209,7 +209,7 @@ export default {
           ],
           reviews: [
             {
-              avatar: 'jane-foster.jpeg',
+              avatar: 'default.jpeg',
               name: 'Thomas Anderson',
               date: '13 января 2029 г.',
               text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
@@ -220,7 +220,7 @@ export default {
               rating: 4
             },
             {
-              avatar: 'jane-foster.jpeg',
+              avatar: 'default.jpeg',
               name: 'Thomas Anderson',
               date: '13 января 2029 г.',
               text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
@@ -231,7 +231,7 @@ export default {
               rating: 1
             },
             {
-              avatar: 'jane-foster.jpeg',
+              avatar: 'default.jpeg',
               name: 'Thomas Anderson',
               date: '13 января 2029 г.',
               text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
@@ -242,7 +242,7 @@ export default {
               rating: 4
             },
             {
-              avatar: 'jane-foster.jpeg',
+              avatar: 'default.jpeg',
               name: 'Thomas Anderson',
               date: '13 января 2029 г.',
               text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.',
