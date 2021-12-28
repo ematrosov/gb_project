@@ -10,7 +10,7 @@
     </div>
     <div class="row mt-12">
       <div class="col filtration_block">
-        <SittersFilters />
+        <SittersFilters @filterList="filterList"/>
       </div>
       <div class="col">
         <FilterSelect :filters="filters" @changeFilter="changeFilter" />
@@ -48,6 +48,8 @@ export default {
           id: 213,
           rating: 3,
           exp: 2,
+          cityAreas: ['Юг'],
+          specialties: ['Собаки'],
           buttonInfo: {
             text: 'Посмотреть профиль'
           },
@@ -63,6 +65,8 @@ export default {
           id: 214,
           rating: 5,
           exp: 1,
+          cityAreas: ['Центр'],
+          specialties: ['Кошки'],
           buttonInfo: {
             text: 'Посмотреть профиль'
           },
@@ -78,6 +82,8 @@ export default {
           id: 215,
           rating: 4,
           exp: 5,
+          cityAreas: ['Север'],
+          specialties: ['Экзотические животные'],
           buttonInfo: {
             text: 'Посмотреть профиль'
           },   
@@ -97,6 +103,27 @@ export default {
     updatePage (localPageSelected) {
       this.page = localPageSelected
       this.getSittersList()
+    },
+    filterList (optionsSelected) {
+      console.log(optionsSelected)
+      if (optionsSelected.cityAreas.length > 0 && optionsSelected.specialties.length > 0 ) {
+      let result = this.sitters.filter( sitter => optionsSelected.cityAreas.some( cityArea => sitter.cityAreas.includes(cityArea) ) && optionsSelected.specialties.some( specialty => sitter.specialties.includes(specialty) )  );
+      this.sortedSitters = result
+      }
+
+      if (optionsSelected.cityAreas.length === 0 && optionsSelected.specialties.length > 0 ) {
+      let result = this.sitters.filter( sitter => optionsSelected.specialties.some( specialty => sitter.specialties.includes(specialty) )  );
+      this.sortedSitters = result
+      }
+
+      if (optionsSelected.cityAreas.length > 0 && optionsSelected.specialties.length === 0 ) {
+      let result = this.sitters.filter( sitter => optionsSelected.cityAreas.some( cityArea => sitter.cityAreas.includes(cityArea) )  );
+      this.sortedSitters = result
+      }
+
+      if (optionsSelected.cityAreas.length === 0 && optionsSelected.specialties.length === 0 ) {
+      this.sortedSitters = this.sitters
+      }
     },
     getSittersList () {
         //запрос на сервер

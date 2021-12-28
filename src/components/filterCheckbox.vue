@@ -40,7 +40,7 @@ export default {
 
   watch: {
     localOptionsSelected (localOptionsSelected) {
-      if (localOptionsSelected.length !== 0) {
+      if (this.remoteOptionsSelected.length !== localOptionsSelected.length) {
         this.$emit('updateOptions', localOptionsSelected, this.filter.filterName)
       }
     },

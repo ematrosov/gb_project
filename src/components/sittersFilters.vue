@@ -73,8 +73,8 @@ export default {
     });
   },
   methods: {
-    getSittersList() {
-      //
+    getSittersList () {
+      this.$emit('filterList', this.optionsSelected)
     },
     updateOptions(localOptionsSelected, filterName) {
       this.$set(this.optionsSelected, filterName, localOptionsSelected);
