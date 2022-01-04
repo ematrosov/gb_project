@@ -105,7 +105,6 @@ export default {
       this.getSittersList()
     },
     filterList (optionsSelected) {
-      console.log(optionsSelected)
       if (optionsSelected.cityAreas.length > 0 && optionsSelected.specialties.length > 0 ) {
       let result = this.sitters.filter( sitter => optionsSelected.cityAreas.some( cityArea => sitter.cityAreas.includes(cityArea) ) && optionsSelected.specialties.some( specialty => sitter.specialties.includes(specialty) )  );
       this.sortedSitters = result

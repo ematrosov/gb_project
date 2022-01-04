@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="row mt-12">
+    <div class="row-sitters mt-12">
       <div class="col image_block">
       <img
         :src="require(`../assets/${sitter.image}`)"
