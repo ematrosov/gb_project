@@ -17,7 +17,7 @@
         <SittersList :sitters="sortedSitters" />
       </div>
     </div>
-    <div class="mt-6 mb-6">      
+    <div class="pagination mt-6 mb-6">      
       <Pagination :page="page" :count="count" :page-size="pageSize" @updatePage="updatePage" />
     </div>
   </div>

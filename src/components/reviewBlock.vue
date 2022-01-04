@@ -23,7 +23,7 @@
               </div>
               <a
                 v-if="unit.reviews.length > defaultLimit"
-                class="btn mt-4"
+                class="btn mt-4 reviewBtn"
                 @click="simpleToggle(defaultLimit, unit.reviews.length)"
               >
                 {{ limitBy === defaultLimit ? "Показать все отзывы" : "Скрыть" }}
