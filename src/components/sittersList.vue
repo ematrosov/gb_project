@@ -1,6 +1,6 @@
 <template>
   <v-container class="mt-n2">
-    <v-row>
+    <v-row class="sitters-list">
       <v-col
         v-for="(item, index) in sitters"
         :key="index"

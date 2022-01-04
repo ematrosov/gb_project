@@ -6,7 +6,7 @@
           <div class="listing__content--comments">
             <div class="listing__list__header">
               <div class="row-comments">
-                <div class="ml-n2">
+                <div class="comments-title">
                   <h3>Отзывы о работе:</h3> 
                 </div>
                 <div>

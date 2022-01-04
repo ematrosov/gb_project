@@ -158,6 +158,13 @@ a {
     margin-left: -25px;
     margin-right: -25px;
   }
+
+  .row-sitters {
+    display: flex;
+    flex-wrap: wrap;
+    /* margin-left: -25px;
+    margin-right: -25px; */
+  }
   
   .filtration_block {
     max-width: 26% !important;    
@@ -351,4 +358,75 @@ a {
   margin: 15px 65px;
   display: flex;
   flex-direction: row;
+}
+
+@media (min-width: 575px) {
+
+  .card-img {
+    margin-right: 8px;
+  }
+}
+
+@media (max-width: 625px) {
+
+  .comments-title {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .avatar-name {
+    margin-bottom: 10px;
+  }
+
+  .review__card {
+    padding: 25px;
+  }
+
+  .review__card__header {
+    flex-direction: column;
+  }
+
+  .applicationBtn {
+    margin-bottom: 60px;
+   }
+
+   .row-sitters {
+    flex-direction: column !important;
+   }
+
+   .image_block {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+   }
+}
+
+@media (max-width: 1264px) {
+
+  .image_block {
+    max-width: 40% !important;
+   }
+}
+
+@media (max-width: 880px) {
+
+  .image_block {
+    max-width: inherit !important;
+   }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .filtration_block {
+    max-width: 100% !important;    
+  }
+
+  .aside {
+    max-width: inherit;
+  }
+
+  .sitters-list {
+    flex-direction: row;
+  }
 }
