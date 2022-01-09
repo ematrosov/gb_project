@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Main from '../components/Main'
 import Find from '../pages/Find'
 import Reviews from '../pages/Reviews'
+import Services from '../pages/Services'
 import About from '../pages/About'
 import Sitter from '../pages/Sitter'
 import Login from '../pages/Login'
@@ -27,6 +28,10 @@ let router = new VueRouter({
             path: '/reviews',
             component: Reviews
         },
+        {
+            path: '/services',
+            component: Services
+        },    
         {
             path: '/become-sitter',
             component: Become

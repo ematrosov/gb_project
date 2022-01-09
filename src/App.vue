@@ -15,7 +15,7 @@
           <span class="mr-2">Главная</span>
         </v-btn>
 
-        <v-menu offset-y class="mr-5">
+        <!--v-menu offset-y class="mr-5">
           <template v-slot:activator="{ on, attrs }">
 
             <v-btn color="#778899" v-bind="attrs" v-on="on" elevation="0">
@@ -34,9 +34,12 @@
               </v-btn>
             </v-list-item>
           </v-list>
-        </v-menu>
+        </v-menu-->
 
 
+        <v-btn href="/services" text>
+          <span class="mr-5">Наши услуги</span>
+        </v-btn>
         <v-btn href="/reviews" text>
           <span class="mr-5">Отзывы</span>
         </v-btn>
@@ -52,9 +55,28 @@
           <span class="mr-5">Регистрация</span>
         </v-btn>
 
-        <v-btn href="/become-sitter" text>
+        <!--v-btn href="/become-sitter" text>
           <span class="mr-5">Стать пэт-ситтером</span>
-        </v-btn>              
+        </v-btn-->    
+         <v-menu offset-y class="mr-5">
+          <template v-slot:activator="{ on, attrs }">
+
+            <v-btn color="#778899" v-bind="attrs" v-on="on" elevation="0">
+              Стать-найти ситтера
+            </v-btn>
+          </template>
+          <v-list color="#778899">
+            <v-list-item
+              v-for="(item, index) in items"
+              :key="index"
+              :href="item.path"
+            >
+              <v-btn color="#ffffff" text>
+                <span class="mr-5">{{ item.title }}</span>
+              </v-btn>
+            </v-list-item>
+          </v-list>
+        </v-menu>          
        
       </div>
     </v-app-bar>
@@ -65,7 +87,7 @@
 
     <v-footer app dark color="#778899" elevation="7">
       <!--strong> {{ new Date().getFullYear() }} - Geekbrains Выпускной проект "Добрый"</strong-->
-      <v-btn text>
+      <v-btn text href="https://github.com/ematrosov/gb_project" target="_blank">
         <span class="mr-1"
           >{{ new Date().getFullYear() }} - Geekbrains Выпускной проект "Добрый
           друг"</span
@@ -86,7 +108,8 @@
 export default {
   name: "App",
   data: () => ({
-    items: [{ title: "Найти пэт-ситтера", path: "/find-sitter" }],    
+    items: [{ title: "Найти ситтера", path: "/find-sitter" },
+    { title: "Стать ситтером", path: "/become-sitter"}],        
     icons: ["mdi-facebook", "mdi-twitter", "mdi-instagram"],
     //
   }),

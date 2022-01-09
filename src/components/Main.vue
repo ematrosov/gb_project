@@ -12,8 +12,8 @@
           <h2>Тебе поможет</h2>
           <h1 class="textGoodFriend">Добрый друг!</h1>                  
           <div color="#778899">
-            <v-btn href="/find-sitter">
-              <span class="mr-1">Найти пэт-ситтера</span>
+            <v-btn href="/services">
+              <span class="mr-1">Перейти к услугам</span>
             </v-btn>
           </div>
         </div>
