@@ -80,6 +80,9 @@ export default {
       reviews: state => state.reviews.reviews,
     }),
   },
+  created() {
+    this.$store.dispatch("fetchDataFromApi", { self: this })       
+  },
   methods: {
   }
 }

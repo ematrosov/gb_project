@@ -1,12 +1,48 @@
 export default {
   actions: {
     addReview({ commit }, review) {
-      commit('updateReviews', review);
+      var ttt = commit; commit = ttt;
+      var data = new FormData();
+      data.append( "json", JSON.stringify( review ) );
+      fetch("/api/reviews", { method: "POST", body: data })
+      .then(response => response.json())
+      .then(data => {
+        if (data['success'] == true)
+        {
+           this.dispatch('fetchDataFromApi', review);
+        }
+        else
+        {
+          console.log(data['message']);
+        }
+      })
+      .catch((error) => {
+        console.log(error.statusText)
+      });
+    },
+    fetchDataFromApi({ commit }) {          
+      fetch("/api/reviews")
+      .then(response => response.json())
+      .then(data => {
+        if (data['success'] == true)
+        {
+          commit('updateData', data.data);
+        }
+        else
+        {
+          console.log(data['message']);
+          commit('updateData', { });
+        }
+      })
+      .catch((error) => {
+        console.log(error.statusText)
+        commit('updateData', { });
+      });
     }
   },
   state: {
     reviews: [
-      {
+/*      {
         id: 0,
         name: 'Рустем',
         review: 'О сервисе могу сказать только положительное. Ребята делают все четко по времени, специалисты с хорошей подготовкой, с вариантами выбора выгульщика. Сервис мне очень нравится. Могу рекомендовать.',
@@ -33,12 +69,15 @@ export default {
         review: 'Замечательный сервис - выручалочка! Ребята, которым не страшно доверить своего любимого песика, все очень четко, пунктуально, ответственно. После каждой прогулки фоторепортаж и карта маршрута. С нами работает выгульщик Римма, для меня она как добрая фея, и погуляет, и лапки помоет)) Лимон каждый раз очень радуется Римме, когда он с ней, я абсолютно спокойна! Спасибо за помощь!',
         avatar: '',
         grade: 2
-      }
+      }  */
     ]
   },
   mutations: {
-    updateReviews(state, payload) {
-      state.reviews.push(payload);
+//    updateReviews(state, payload) {
+//      state.reviews.push(payload);
+//    },
+    updateData(state, newData) {
+      state.reviews = newData;
     }
   },
 }
