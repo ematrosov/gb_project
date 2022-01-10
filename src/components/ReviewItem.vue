@@ -1,12 +1,12 @@
 <template>
   <v-card
     class="mx-auto"
-    color="#26c6da"
+    color="#6de8e6"
     dark
     max-width="400"
   >
 
-    <v-card-text class="text-h5 font-weight-bold">
+    <v-card-text class="text-h5 font-weight-bold review-card">
       {{review.review}}
     </v-card-text>
 
@@ -21,7 +21,7 @@
         </v-list-item-avatar>
 
         <v-list-item-content>
-          <v-list-item-title>{{review.name}}</v-list-item-title>
+          <v-list-item-title class="review-name">{{review.name}}</v-list-item-title>
           <v-spacer></v-spacer>
           <v-rating
             :value="review.grade"

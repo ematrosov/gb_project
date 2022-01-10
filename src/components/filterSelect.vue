@@ -7,7 +7,7 @@
     outlined
     label="Отфильтровать"
     class="filter-select"
-    color="primary"
+    color="#18a8b5"
   />
 </template>
 

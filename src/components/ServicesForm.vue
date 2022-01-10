@@ -1,10 +1,10 @@
 <template>
   <v-card>
     <v-card-title>
-      <v-btn class="card-outter" @click="sendReview">Отправить заявку</v-btn>
+      <v-btn color="#18a8b5" class="card-outter text-btn" @click="sendReview">Отправить заявку</v-btn>
       <v-spacer></v-spacer>
 
-      <v-btn class="card-outter" @click="closeDialog">
+      <v-btn color="#18a8b5" class="card-outter text-btn" @click="closeDialog">
         <v-icon>mdi-close</v-icon>
       </v-btn>
     </v-card-title>
@@ -63,7 +63,7 @@
           </v-row>
 
           <v-dialog v-model="loading" persistent width="300">
-            <v-card color="primary" dark>
+            <v-card color="#18a8b5" dark>
               <v-card-text class="pt-2">
                 Пожалуйста, подождите
                 <v-progress-linear

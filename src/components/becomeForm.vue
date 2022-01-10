@@ -3,6 +3,7 @@
     <v-form ref="form">
       <v-card-text>
         <v-text-field
+          color="#18a8b5"
           label="Ваше имя"
           outlined
           clearable
@@ -12,6 +13,7 @@
         ></v-text-field>
 
         <v-text-field
+          color="#18a8b5"
           label="Ваша фамилия"
           outlined
           clearable
@@ -21,6 +23,7 @@
         ></v-text-field>
 
         <v-textarea
+          color="#18a8b5"
           v-model="application.text"
           label="Расскажите о Вашем опыте работы с животными и почему Вы хотите стать нашим ситтером"
           outlined
@@ -30,6 +33,8 @@
         />
 
         <v-select
+          item-color="#18a8b5"
+          color="#18a8b5"
           :items="animals"
           label="Выберите, с какими животными Вы готовы работать"
           chips
@@ -40,6 +45,8 @@
         ></v-select>
 
         <v-select
+          item-color="#18a8b5"
+          color="#18a8b5"
           :items="cityAreas"
           label="Выберите, в каких районах города Вы готовы работать"
           chips
@@ -51,13 +58,14 @@
 
         <v-label> Номер телефона для связи </v-label>
 
-        <VuePhoneNumberInput class="mb-5" v-model="application.number" />
+        <VuePhoneNumberInput color="#18a8b5" class="mb-5" v-model="application.number" />
 
         <h4 class="red--text font-weight-regular">
           {{ errorMessages.number }}
         </h4>
 
         <v-text-field
+          color="#18a8b5"
           label="Ваша почта"
           outlined
           clearable
@@ -67,6 +75,7 @@
         ></v-text-field>
 
         <v-text-field
+          color="#18a8b5"
           label="Ссылка на Вашу страницу в социальных сетях"
           outlined
           clearable
@@ -76,6 +85,7 @@
         ></v-text-field>
 
         <v-checkbox
+          color="#18a8b5"
           v-model="application.agreement"
           label="Согласие на обработку персональных данных"
           :error-messages="errorMessages.agreement"
@@ -88,7 +98,7 @@
       @eventHandler="sendApplication"
     />
     <v-dialog v-model="loading" persistent width="300">
-      <v-card color="primary" dark>
+      <v-card color="#18a8b5" dark>
         <v-card-text class="pt-2">
           Пожалуйста, подождите
           <v-progress-linear

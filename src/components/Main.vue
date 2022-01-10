@@ -11,9 +11,9 @@
           </h2>
           <h2>Тебе поможет</h2>
           <h1 class="textGoodFriend">Добрый друг!</h1>                  
-          <div color="#778899">
-            <v-btn href="/services">
-              <span class="mr-1">Перейти к услугам</span>
+          <div>
+            <v-btn color="#18a8b5" href="/services">
+              <span class="mr-1 text-btn">Перейти к услугам</span>
             </v-btn>
           </div>
         </div>
