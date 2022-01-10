@@ -53,9 +53,6 @@ export default {
       sitter: {}
     }
   },
-  methods: {
-    // тут будет запрос чтобы получить профиль по id
-  },
   mounted () {
     if (this.$route.params.id == 213) {
       this.sitter = {

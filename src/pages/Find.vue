@@ -17,27 +17,20 @@
         <SittersList :sitters="sortedSitters" />
       </div>
     </div>
-    <div class="pagination mt-6 mb-6">      
-      <Pagination :page="page" :count="count" :page-size="pageSize" @updatePage="updatePage" />
-    </div>
   </div>
 </template>
 
 <script>
 import SittersFilters from '../components/sittersFilters'
 import SittersList from '../components/sittersList'
-import Pagination from '../components/pagination'
 import FilterSelect from '../components/filterSelect'
 
 
 export default {
-  components: { SittersFilters, SittersList, Pagination, FilterSelect },
+  components: { SittersFilters, SittersList, FilterSelect },
   data () {
     return {
       filters: ['По рейтингу', 'По стажу'],
-      page: 1,
-      count: 20,
-      pageSize: 2,
       title: 'Наши ситтеры',
       sortedSitters: [],
       desc: 'Найдите подходящего под Ваши критерии ситтера для Вашего питомца',
@@ -100,10 +93,7 @@ export default {
     this.sortedSitters = this.sitters
   },
   methods: {
-    updatePage (localPageSelected) {
-      this.page = localPageSelected
-      this.getSittersList()
-    },
+
     filterList (optionsSelected) {
       if (optionsSelected.cityAreas.length > 0 && optionsSelected.specialties.length > 0 ) {
       let result = this.sitters.filter( sitter => optionsSelected.cityAreas.some( cityArea => sitter.cityAreas.includes(cityArea) ) && optionsSelected.specialties.some( specialty => sitter.specialties.includes(specialty) )  );
@@ -123,9 +113,6 @@ export default {
       if (optionsSelected.cityAreas.length === 0 && optionsSelected.specialties.length === 0 ) {
       this.sortedSitters = this.sitters
       }
-    },
-    getSittersList () {
-        //запрос на сервер
     },
     changeFilter (filter) {
       if (filter === 'По рейтингу') {

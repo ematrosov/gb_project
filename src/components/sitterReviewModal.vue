@@ -120,7 +120,6 @@ export default {
       }
       this.loading = true
       setTimeout(() => (this.loading = false, this.isReviewWindowOn = false,this.dialog = true), 2000)
-      // отправка
     },
 
     checkTextareaField () {
