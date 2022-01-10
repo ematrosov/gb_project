@@ -110,7 +110,7 @@ export default {
       this.postDownVote()
     },
     shortenText (text) {
-      return text.substring(0, 220)
+      return text.substring(0, 250)
     },
     postUpVote () {
     },

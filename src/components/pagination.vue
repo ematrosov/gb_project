@@ -40,7 +40,7 @@ export default {
   },
   mounted () {
     this.localPageSelected = this.page
-    // this.$emit('updatePage', this.localPageSelected)
+    this.$emit('updatePage', this.localPageSelected)
   }
 }
 </script>

@@ -37,7 +37,7 @@ export default {
       filters: ['По рейтингу', 'По стажу'],
       page: 1,
       count: 20,
-      pageSize: 10,
+      pageSize: 2,
       title: 'Наши ситтеры',
       sortedSitters: [],
       desc: 'Найдите подходящего под Ваши критерии ситтера для Вашего питомца',
