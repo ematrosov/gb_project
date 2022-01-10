@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="#778899" dark elevation="7" justify="center">
+    <v-app-bar app color="#00cccc" dark elevation="7" justify="center">
       <div class="d-flex align-center">
         <v-img
           alt="Logo"
@@ -61,11 +61,11 @@
          <v-menu offset-y class="mr-5">
           <template v-slot:activator="{ on, attrs }">
 
-            <v-btn color="#778899" v-bind="attrs" v-on="on" elevation="0">
+            <v-btn color="#00cccc" v-bind="attrs" v-on="on" elevation="0">
               Ситтеры
             </v-btn>
           </template>
-          <v-list color="#778899">
+          <v-list color="#00cccc">
             <v-list-item
               v-for="(item, index) in items"
               :key="index"
@@ -85,7 +85,7 @@
       <router-view />
     </v-main>
 
-    <v-footer app dark color="#778899" elevation="7">
+    <v-footer app dark color="#00cccc" elevation="7">
       <!--strong> {{ new Date().getFullYear() }} - Geekbrains Выпускной проект "Добрый"</strong-->
       <v-btn text href="https://github.com/ematrosov/gb_project" target="_blank">
         <span class="mr-1"

@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <v-toolbar dark color="primary">
+    <v-toolbar dark color="#6fe8dc">
       <v-spacer></v-spacer>
       <v-btn icon dark @click="closeDialog">
         <v-icon>mdi-close</v-icon>
@@ -52,6 +52,7 @@
             </v-col>
             <v-col cols="12">
               <v-slider
+                color="#6fe8dc"
                 v-model="grade"
                 :thumb-size="34"
                 thumb-label="always"
@@ -74,7 +75,7 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn color="blue darken-1" text @click="sendReview"
+      <v-btn color="#1fb5b8" text @click="sendReview"
         >Отправить отзыв</v-btn
       >
     </v-card-actions>

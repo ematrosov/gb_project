@@ -10,6 +10,7 @@
         </v-toolbar>
         <v-card-text>
             <v-textarea
+              color="#18a8b5"
               v-model="review.textarea"
               outlined
               :label="textareaLabel"
@@ -28,11 +29,12 @@
                   v-for="n in 5"
                   :key="n"
                   :label="`${n}`"
-                  color="primary"
+                  color="#18a8b5"
                   :value="n"
                 />
               </v-radio-group>
             <v-text-field
+              color="#18a8b5"
               v-model="review.textfield"
               class="mt-4"
               outlined
@@ -51,7 +53,7 @@
       width="300"
     >
       <v-card
-        color="primary"
+        color="#18a8b5"
         dark
       >
         <v-card-text class="pt-2">
