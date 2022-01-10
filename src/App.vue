@@ -62,7 +62,7 @@
           <template v-slot:activator="{ on, attrs }">
 
             <v-btn color="#778899" v-bind="attrs" v-on="on" elevation="0">
-              Стать-найти ситтера
+              Ситтеры
             </v-btn>
           </template>
           <v-list color="#778899">
