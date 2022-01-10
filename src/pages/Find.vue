@@ -17,27 +17,20 @@
         <SittersList :sitters="sortedSitters" />
       </div>
     </div>
-    <div class="mt-6 mb-6">      
-      <Pagination :page="page" :count="count" :page-size="pageSize" @updatePage="updatePage" />
-    </div>
   </div>
 </template>
 
 <script>
 import SittersFilters from '../components/sittersFilters'
 import SittersList from '../components/sittersList'
-import Pagination from '../components/pagination'
 import FilterSelect from '../components/filterSelect'
 
 
 export default {
-  components: { SittersFilters, SittersList, Pagination, FilterSelect },
+  components: { SittersFilters, SittersList, FilterSelect },
   data () {
     return {
       filters: ['По рейтингу', 'По стажу'],
-      page: 1,
-      count: 20,
-      pageSize: 10,
       title: 'Наши ситтеры',
       sortedSitters: [],
       desc: 'Найдите подходящего под Ваши критерии ситтера для Вашего питомца',
@@ -100,12 +93,8 @@ export default {
     this.sortedSitters = this.sitters
   },
   methods: {
-    updatePage (localPageSelected) {
-      this.page = localPageSelected
-      this.getSittersList()
-    },
+
     filterList (optionsSelected) {
-      console.log(optionsSelected)
       if (optionsSelected.cityAreas.length > 0 && optionsSelected.specialties.length > 0 ) {
       let result = this.sitters.filter( sitter => optionsSelected.cityAreas.some( cityArea => sitter.cityAreas.includes(cityArea) ) && optionsSelected.specialties.some( specialty => sitter.specialties.includes(specialty) )  );
       this.sortedSitters = result
@@ -124,54 +113,6 @@ export default {
       if (optionsSelected.cityAreas.length === 0 && optionsSelected.specialties.length === 0 ) {
       this.sortedSitters = this.sitters
       }
-    },
-    getSittersList () {
-      var data = new FormData();
-      data.append("json", JSON.stringify(
-          {page: 10}
-      ));
-      fetch("/api/sitters", {method: "POST", body: data})
-          .then(response => response.json())
-          .then(data => {
-            if (data['success'] == true) {
-              var sittersTmp = [];
-              console.log("success!!!", data);
-              data.data.sitters.forEach(function (elem) {
-                var sitterTmp =
-                    {
-                      name: [elem['name'], elem['lastname']].join(' '),
-                      image: elem['image'] || 'default.jpeg',
-                      id: elem['id'],
-                      rating: elem['rating'],
-                      exp: 5,
-                      cityAreas: elem['city_areas'],
-                      specialties: elem['sitter_animals'],
-                      //cityAreas: elem.city_areas,
-                      //specialties: elem.sitter_animals,
-                      //cityAreas: ['Север'],
-                      //specialties: ['Экзотические животные'],
-                      buttonInfo: {
-                        text: 'Посмотреть профиль'
-                      },
-                      info: [
-                        {icon: 'mdi-calendar-range', text: 'Стаж', value: '5 лет'},
-                        {icon: 'mdi-map-marker', text: 'Район города', value: 'Север'},
-                        {icon: 'mdi-paw', text: 'Специализация', value: 'Экзотические животные'},
-                      ]
-                    };
-                sittersTmp.push(sitterTmp);
-              });
-              console.log("------------###", this.sortedSitters);
-              console.log("------------!!!", sittersTmp);
-              this.sitters = sittersTmp;
-              this.sortedSitters = sittersTmp;
-            } else {
-              console.log(data['message']);
-            }
-          })
-          .catch((error) => {
-            console.log(error)
-          });
     },
     changeFilter (filter) {
       if (filter === 'По рейтингу') {

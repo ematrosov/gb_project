@@ -39,7 +39,6 @@
   margin-top: 50px;  
   margin-bottom: 50px;  
   text-align: center; 
-  background-color: rgb(232, 241, 241);
   font-size: 50px;
 }
 
@@ -107,7 +106,8 @@ a {
     display: inline-block;
     letter-spacing: 0.5px;
     background-color: primary;
-    border: 1px solid cornflowerblue;
+    border: 1px solid #18a8b5;
+    color: #18a8b5 !important;
   }
   
   .unit-info-list {
@@ -133,6 +133,7 @@ a {
   }
   
   .card-name {
+    color: #18a8b5;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -145,7 +146,7 @@ a {
     overflow: hidden;
     max-width: 255px;
     margin: 0 auto 20px;
-    border: 1px solid cornflowerblue;
+    border: 1px solid #18a8b5;
   }
   
   .card-description {
@@ -157,6 +158,11 @@ a {
     flex-wrap: wrap;
     margin-left: -25px;
     margin-right: -25px;
+  }
+
+  .row-sitters {
+    display: flex;
+    flex-wrap: wrap;
   }
   
   .filtration_block {
@@ -172,14 +178,14 @@ a {
   
   .filter {
     border-radius: 3px;
-    border: 1px solid cornflowerblue;
+    border: 1px solid #18a8b5;
   }
   
   .filter__head {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid cornflowerblue;
+    border-bottom: 1px solid #18a8b5;
     margin-bottom: 22px;
     padding: 22px 19px 12px 21px;
   }
@@ -201,7 +207,7 @@ a {
 .filter-item {
   padding-left: 20px;
   padding-right: 20px;
-  border-bottom: 1px solid cornflowerblue;
+  border-bottom: 1px solid #18a8b5;
   padding-bottom: 23px;
   margin-bottom: 26px;
 }
@@ -219,7 +225,7 @@ a {
 
 .filter-selector {
   color: white;
-  border: 1px solid primary;
+  border: 1px solid #18a8b5;
   border-radius: 8px;
   padding: 11px;
 } 
@@ -246,7 +252,7 @@ a {
 
 .review__card {
   padding: 50px;
-  border: 1px solid cornflowerblue;
+  border: 1px solid #18a8b5;
   margin-top: 20px;
   border-radius: 12px;
 }
@@ -351,4 +357,84 @@ a {
   margin: 15px 65px;
   display: flex;
   flex-direction: row;
+}
+
+@media (min-width: 575px) {
+
+  .card-img {
+    margin-right: 8px;
+  }
+}
+
+@media (max-width: 625px) {
+
+  .comments-title {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .avatar-name {
+    margin-bottom: 10px;
+  }
+
+  .review__card {
+    padding: 25px;
+  }
+
+  .review__card__header {
+    flex-direction: column;
+  }
+
+  .applicationBtn {
+    margin-bottom: 60px;
+   }
+
+   .reviewBtn {
+    margin-bottom: 30px;
+   }
+
+   .row-sitters {
+    flex-direction: column !important;
+   }
+
+   .image_block {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+   }
+}
+
+@media (max-width: 1264px) {
+
+  .image_block {
+    max-width: 40% !important;
+   }
+}
+
+@media (max-width: 880px) {
+
+  .image_block {
+    max-width: inherit !important;
+   }
+
+  
+  .row {
+    flex-direction: column;
+  }
+
+  .filtration_block {
+    max-width: 100% !important;    
+  }
+
+  .aside {
+    max-width: inherit;
+  }
+
+  .sitters-list {
+    flex-direction: row;
+  }
+}
+
+.review-card, .review-name, .text-btn {
+  color: white !important;
 }

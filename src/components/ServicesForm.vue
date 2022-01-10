@@ -1,14 +1,25 @@
 <template>
   <v-card>
-    <v-toolbar dark color="#6fe8dc">
+    <v-card-title>
+      <v-btn color="#18a8b5" class="card-outter text-btn" @click="sendReview">Отправить заявку</v-btn>
       <v-spacer></v-spacer>
-      <v-btn icon dark @click="closeDialog">
+
+      <v-btn color="#18a8b5" class="card-outter text-btn" @click="closeDialog">
         <v-icon>mdi-close</v-icon>
       </v-btn>
-    </v-toolbar>
-    <v-card-title>
-      <span class="text-h5">Оставить отзыв</span>
     </v-card-title>
+
+    <v-card-title class="text-center">
+      <h4>
+        Для получения услуги <H3>"{{ this.servis.name }}"</H3> заполните
+        обязательные поля (*) и нажмите кнопку <br />
+        "Отправить заявку". <br />
+        Если на нашем сайте вы подобрали ситтера для <br />
+        своего питомца - укажите его имя в комментарии. <br />
+        В ближайшее время наш менеджер свяжется с вами.
+      </h4>
+    </v-card-title>
+
     <v-card-text>
       <v-form ref="form" v-model="valid" lazy-validation>
         <v-container>
@@ -42,43 +53,39 @@
             </v-col>
             <v-col cols="12">
               <v-textarea
-                label="Ваш отзыв*"
+                label="Ваш комментарий"
                 outlined
                 required
                 v-model="review"
-                :rules="reviewRules"
-                class="mb-4"
+                class="mb-3"
               ></v-textarea>
             </v-col>
-            <v-col cols="12">
-              <v-slider
-                color="#6fe8dc"
-                v-model="grade"
-                :thumb-size="34"
-                thumb-label="always"
-                :tick-labels="ticksLabels"
-                :min="0"
-                :max="5"
-                step="1"
-                ticks="always"
-                tick-size="4"
-              >
-                <template v-slot:thumb-label="{ value }">
-                  <span class="thumb">{{ satisfactionEmojis[value] }}</span>
-                </template>
-              </v-slider>
-            </v-col>
           </v-row>
+
+          <v-dialog v-model="loading" persistent width="300">
+            <v-card color="#18a8b5" dark>
+              <v-card-text class="pt-2">
+                Пожалуйста, подождите
+                <v-progress-linear
+                  indeterminate
+                  color="white"
+                  class="mt-2"
+                ></v-progress-linear>
+              </v-card-text>
+            </v-card>
+          </v-dialog>
+          <v-dialog v-model="dialog" width="320">
+            <v-card  class="text-center">
+              <v-card-title  class="h1">
+                Ваша заявка принята <br>             
+                Спасибо, что выбрали нас!
+              </v-card-title>
+            </v-card>
+          </v-dialog>
         </v-container>
-        <small>Поля отмеченные * обязательные для заполнения</small>
+        <!--small>Поля отмеченные * обязательные для заполнения</small-->
       </v-form>
     </v-card-text>
-    <v-card-actions>
-      <v-spacer></v-spacer>
-      <v-btn color="#1fb5b8" text @click="sendReview"
-        >Отправить отзыв</v-btn
-      >
-    </v-card-actions>
   </v-card>
 </template>
 
@@ -86,8 +93,16 @@
 import { mapActions } from "vuex";
 export default {
   name: "ReviewsForm",
+  props: {
+    servis: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {
+      loading: false,
+      dialog: false,
       valid: true,
       name: "",
       email: "",
@@ -108,9 +123,7 @@ export default {
       ],
     };
   },
-
-  props: {
-  },
+  mounted() {},
 
   methods: {
     ...mapActions(["addReview"]),
@@ -124,8 +137,23 @@ export default {
       const valid = this.$refs.form.validate();
       if (!valid) return;
       const { name, email, phone, review, grade } = this;
-      this.$emit("close-dialog");
+      // this.$emit("close-dialog");
       this.addReview({ name, email, phone, review, grade });
+    //},
+    //postReview() {
+      //if (!this.validate()) {
+      //        return false
+      //    }
+      this.loading = true;
+      setTimeout(
+        () => (
+          (this.loading = false),
+          (this.isReviewWindowOn = false),
+          (this.dialog = true)
+        ),
+        2000
+      );
+      // отправка
     },
   },
 };
@@ -133,9 +161,9 @@ export default {
 
 <style>
 .thumb {
-  font-size: 24px;
+  font-size: 20px;
   width: 24px;
-  height: 24px;
+  height: 20px;
   line-height: 2;
 }
 </style>

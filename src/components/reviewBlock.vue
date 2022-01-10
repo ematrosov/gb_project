@@ -6,7 +6,7 @@
           <div class="listing__content--comments">
             <div class="listing__list__header">
               <div class="row-comments">
-                <div class="ml-n2">
+                <div class="comments-title">
                   <h3>Отзывы о работе:</h3> 
                 </div>
                 <div>
@@ -23,7 +23,7 @@
               </div>
               <a
                 v-if="unit.reviews.length > defaultLimit"
-                class="btn mt-4"
+                class="btn mt-4 reviewBtn"
                 @click="simpleToggle(defaultLimit, unit.reviews.length)"
               >
                 {{ limitBy === defaultLimit ? "Показать все отзывы" : "Скрыть" }}
