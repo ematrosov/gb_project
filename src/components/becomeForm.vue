@@ -167,7 +167,29 @@ export default {
         return false;
       }
       this.loading = true;
-      setTimeout(() => ((this.loading = false), (this.dialog = true)), 2000);
+
+      var data = new FormData();
+      data.append("json", JSON.stringify(this.application));
+      fetch("/api/become_sitter", {method: "POST", body: data})
+          .then(response => response.json())
+          .then(data => {
+            if (data['success'] == true) {
+              this.loading = false;
+              this.dialog = true;
+            } else {
+              console.log(data['message']);
+              this.loading = false;
+              this.dialog = true;
+            }
+          })
+          .catch((error) => {
+            console.log(error.statusText)
+            this.loading = false;
+            this.dialog = true;
+          });
+
+
+      //setTimeout(() => ((this.loading = false), (this.dialog = true)), 2000);
     },
 
     checkNameField() {

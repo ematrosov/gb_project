@@ -42,7 +42,7 @@ export default {
       sortedSitters: [],
       desc: 'Найдите подходящего под Ваши критерии ситтера для Вашего питомца',
       sitters: [
-/*        {
+        {
           name: 'Jane Foster',
           image: 'jane-foster.jpeg',
           id: 213,
@@ -92,7 +92,7 @@ export default {
             { icon: 'mdi-map-marker', text: 'Район города', value: 'Север' },
             { icon: 'mdi-paw', text: 'Специализация', value: 'Экзотические животные' },
           ]
-        }, */
+        },
       ]
     }
   },
@@ -128,49 +128,19 @@ export default {
     getSittersList () {
       var data = new FormData();
       data.append("json", JSON.stringify(
-          {page: 10}
+        {  page: 10 }
       ));
       fetch("/api/sitters", {method: "POST", body: data})
           .then(response => response.json())
           .then(data => {
             if (data['success'] == true) {
-              var sittersTmp = [];
-              console.log("success!!!", data);
-              data.data.sitters.forEach(function (elem) {
-                var sitterTmp =
-                    {
-                      name: [elem['name'], elem['lastname']].join(' '),
-                      image: elem['image'] || 'default.jpeg',
-                      id: elem['id'],
-                      rating: elem['rating'],
-                      exp: 5,
-                      cityAreas: elem['city_areas'],
-                      specialties: elem['sitter_animals'],
-                      //cityAreas: elem.city_areas,
-                      //specialties: elem.sitter_animals,
-                      //cityAreas: ['Север'],
-                      //specialties: ['Экзотические животные'],
-                      buttonInfo: {
-                        text: 'Посмотреть профиль'
-                      },
-                      info: [
-                        {icon: 'mdi-calendar-range', text: 'Стаж', value: '5 лет'},
-                        {icon: 'mdi-map-marker', text: 'Район города', value: 'Север'},
-                        {icon: 'mdi-paw', text: 'Специализация', value: 'Экзотические животные'},
-                      ]
-                    };
-                sittersTmp.push(sitterTmp);
-              });
-              console.log("------------###", this.sortedSitters);
-              console.log("------------!!!", sittersTmp);
-              this.sitters = sittersTmp;
-              this.sortedSitters = sittersTmp;
+              console.log("success!!!",data);
             } else {
               console.log(data['message']);
             }
           })
           .catch((error) => {
-            console.log(error)
+            console.log(error.statusText)
           });
     },
     changeFilter (filter) {
