@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import Axios from 'axios'
+import axios from 'axios'
 
 
 Vue.use(Vuex);
@@ -10,25 +10,41 @@ let store = new Vuex.Store({
         users: []
     },
     mutations: {
-        addNewUser (state, user) {
+        SET_USERS_TO_STATE: (state, users) => {
+            state.users = users;
+        },
+        ADD_NEW_USER: (state, user) => {
             state.users.push(user)
         },
-        checkUser (state, user) {
+        LOGIN (state, user) {
             state.users.email = user.email
             state.users.password = user.password
         }
     },
     getters: {
-        getUsers (state) {
-            return state.users
-        }
+        USERS (state) {
+            return state.users;
+        },
     },
     actions: {
-        addUser ({ commit }, user) {
-            commit('addNewUser', user)
+        GET_USERS_FROM_API({commit}) {
+            return axios('http://localhost:3000/users', {
+              method: "GET"
+            })
+              .then((users) => {
+                commit('SET_USERS_TO_STATE', users.data);
+                return users;
+              })
+              .catch((error) => {
+                console.log(error)
+                return error;
+              })
         },
-        login({commit}, user){
-            commit('checkUser', user)
+        ADD_USER ({commit}, user) {
+            commit('ADD_NEW_USER', user)
+        },
+        LOGIN_USER ({commit}, user){
+            commit('LOGIN', user)
         }
     }      
 });

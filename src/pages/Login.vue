@@ -1,23 +1,28 @@
 <template>
   <div class="login">
     <h1 class="login_title">Войти</h1>
-    <form class="login_form"
-        @submit.prevent="authorization">
+    <form class="login_form">
       <input
+        required
         type="email"
         class="login_form__input"
         placeholder="Введите email"
-        v-model="email" 
+        v-model="email"
       />
       <input
+        required
         type="password"
         class="login_form__input"
         placeholder="Введите пароль"
         v-model="password"
       />
-      <!--input type="submit" class="login_form__btn" placeholder="Войти" /-->
-      <router-link to="/profile">Войти в личный кабинет</router-link>
+      <router-link to="/profile">
+        <button type="submit" class="login_form__btn" @click="authorization">
+          Войти
+        </button>
+      </router-link>
     </form>
+
     <div class="no-login">
       <p>Еще не зарегистрированы?</p>
       <router-link to="/registration">Пройти регистрацию</router-link>
@@ -26,7 +31,8 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
+
 export default {
   data() {
     return {
@@ -35,16 +41,17 @@ export default {
     };
   },
   methods: {
+    ...mapMutations([LOGIN]),
     authorization() {
       const { email, password } = this;
       this.$store
-        .dispatch("login", { email, password })
-        .then(() => this.$router.push("/"))
+        .dispatch("LOGIN", { email, password })
+        .then(() => this.$router.push("/profile"))
         .catch((err) => console.log(err));
     },
   },
   computed: {
-    ...mapGetters(["getUsers"]),
+    ...mapGetters(["USERS"]),
   },
 };
 </script>

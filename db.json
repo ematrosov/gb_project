@@ -1,0 +1,36 @@
+{
+    "users": [
+      {
+        "name": "Марина",
+        "surname": "Чурмеева",
+        "email": "test@test.ru",
+        "password": "1234",
+        "dateBirthday": "21.09.1993",
+        "city": "Moscow"
+      },
+      {
+        "name": "Надежда",
+        "surname": "Колотилова",
+        "email": "test1@test.ru",
+        "password": "1234",
+        "dateBirthday": "18.05.1990",
+        "city": "London"
+      },
+      {
+        "name": "Олеся",
+        "surname": "Крижановская",
+        "email": "test2@test.ru",
+        "password": "1234",
+        "dateBirthday": "27.06.1992",
+        "city": "St.Petersburg"
+      },
+      {
+        "name": "Виктория",
+        "surname": "Есина",
+        "email": "test3@test.ru",
+        "password": "1234",
+        "dateBirthday": "05.02.1993",
+        "city": "New York"
+      }
+    ]
+  }
